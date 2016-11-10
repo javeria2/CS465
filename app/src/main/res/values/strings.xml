@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Parking Pterodactyl</string>
+    <string name="title_activity_message_board">MessageBoard</string>
 </resources>
