@@ -5,11 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.illinois.cs465.parkingpterodactyl.MainActivity">
+
     <android.support.v4.widget.DrawerLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/drawer_layout"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,6 +32,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:id="@+id/navigation_view"
+            app:headerLayout="@layout/navigation_drawer_header"
             android:layout_gravity="start"
             app:menu="@menu/drawer_menu"
             ></android.support.design.widget.NavigationView>
