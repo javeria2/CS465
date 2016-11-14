@@ -12,8 +12,16 @@
             >
             <menu>
                 <item
-                    android:title="Small Car"
-                    android:height="60dp"
+                    android:title="Hatchback"
+                    app:actionLayout="@layout/widget_check" />
+                <item
+                    android:title="Sedan"
+                    app:actionLayout="@layout/widget_check" />
+                <item
+                    android:title="SUV"
+                    app:actionLayout="@layout/widget_check" />
+                <item
+                    android:title="Truck"
                     app:actionLayout="@layout/widget_check" />
             </menu>
         </item>
