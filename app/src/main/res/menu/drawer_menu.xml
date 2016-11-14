@@ -13,16 +13,16 @@
             <menu>
                 <item
                     android:title="Hatchback"
-                    app:actionLayout="@layout/widget_check" />
+                    app:actionLayout="@layout/hatchback_button" />
                 <item
                     android:title="Sedan"
-                    app:actionLayout="@layout/widget_check" />
+                    app:actionLayout="@layout/sedan_button" />
                 <item
                     android:title="SUV"
-                    app:actionLayout="@layout/widget_check" />
+                    app:actionLayout="@layout/suv_button" />
                 <item
                     android:title="Truck"
-                    app:actionLayout="@layout/widget_check" />
+                    app:actionLayout="@layout/truck_button" />
             </menu>
         </item>
 
