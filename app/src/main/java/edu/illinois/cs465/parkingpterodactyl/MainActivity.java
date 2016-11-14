@@ -13,6 +13,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -97,6 +98,26 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_items, menu);
         MenuItem item = menu.findItem(R.id.action_search);
         searchView.setMenuItem(item);
+
+        //listener to detect click on search button, we navigate to the map view from here
+        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+
+            //for now, just printing stuff to the logs
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Log.e("onQueryTextSubmit", "called");
+                return false;
+            }
+
+            //for now, just printing stuff to the logs
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                Log.e("onQueryTextChange", "called");
+                return false;
+            }
+        });
+
         return true;
     }
+
 }
