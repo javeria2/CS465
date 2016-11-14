@@ -86,6 +86,13 @@ public class MessageBoard extends AppCompatActivity {
         LinkedList<Message> messages = new LinkedList<>();
         messages.add(new Message("Test message."));
         messages.add(new Message("A second test message that is a bit longer. This message is supposed to show word wrapping."));
+        messages.add(new Message("Let's"));
+        messages.add(new Message("See"));
+        messages.add(new Message("If"));
+        messages.add(new Message("Scrolling"));
+        messages.add(new Message("Works"));
+        messages.add(new Message("Or"));
+        messages.add(new Message("Not"));
 
         for (Message message : messages) {
             addMessageToBoard(message);
