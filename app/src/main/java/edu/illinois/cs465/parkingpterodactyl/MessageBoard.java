@@ -37,9 +37,9 @@ public class MessageBoard extends AppCompatActivity {
          // Create the text view with the message text
         TextView messageText = new TextView(this);
         messageText.setText(m.getText());
-        TableLayout.LayoutParams messageTextParams = new TableLayout.LayoutParams(
+        LinearLayout.LayoutParams messageTextParams = new LinearLayout.LayoutParams(
                 0,
-                TableLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT,
                 1f
         );
         messageText.setLayoutParams(messageTextParams);
@@ -47,21 +47,23 @@ public class MessageBoard extends AppCompatActivity {
         messageText.setTextColor(getResources().getColor(R.color.textColor));
         messageText.setPadding(dpToPx(15), dpToPx(15), dpToPx(15), dpToPx(15));
 
-        messagesContainer.addView(messageText);
+        newContainer.addView(messageText);
 
          // Create the text view with the time text
         TextView messageTime = new TextView(this);
         messageTime.setText(m.getPastTime());
-        TableLayout.LayoutParams messageTimeParams = new TableLayout.LayoutParams(
-                TableLayout.LayoutParams.WRAP_CONTENT,
-                TableLayout.LayoutParams.MATCH_PARENT
+        LinearLayout.LayoutParams messageTimeParams = new LinearLayout.LayoutParams(
+                dpToPx(50),
+                LinearLayout.LayoutParams.MATCH_PARENT
         );
         messageTime.setLayoutParams(messageTimeParams);
-        messageTime.setGravity(Gravity.CENTER_VERTICAL | Gravity.END);
+        messageTime.setGravity(Gravity.CENTER);
         messageTime.setTextColor(getResources().getColor(R.color.textColor));
         messageTime.setPadding(dpToPx(10), 0, dpToPx(10), 0);
 
-        messagesContainer.addView(messageTime);
+        newContainer.addView(messageTime);
+
+        messagesContainer.addView(newContainer);
     }
 
     @Override

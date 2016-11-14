@@ -2,6 +2,7 @@ package edu.illinois.cs465.parkingpterodactyl;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -58,12 +59,14 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.messages_id:
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        /*fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, new HomeFragment());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("Message Board");
                         item.setChecked(true);
-                        drawerLayout.closeDrawers();
+                        drawerLayout.closeDrawers();*/
+                        Intent openMessageBoardIntent = new Intent(MainActivity.this, MessageBoard.class);
+                        startActivity(openMessageBoardIntent);
                         break;
                 }
 
