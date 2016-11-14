@@ -16,7 +16,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
@@ -67,8 +69,8 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.main_container, new HomeFragment());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("Message Board");
-                        item.setChecked(true);
-                        drawerLayout.closeDrawers();*/
+                        item.setChecked(true);*/
+                        drawerLayout.closeDrawers();
                         Intent openMessageBoardIntent = new Intent(MainActivity.this, MessageBoard.class);
                         startActivity(openMessageBoardIntent);
                         break;
@@ -91,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         searchView = (MaterialSearchView)findViewById(R.id.search_view);
+        searchView.setHint("Where are you going?");
         getMenuInflater().inflate(R.menu.menu_items, menu);
         MenuItem item = menu.findItem(R.id.action_search);
         searchView.setMenuItem(item);
