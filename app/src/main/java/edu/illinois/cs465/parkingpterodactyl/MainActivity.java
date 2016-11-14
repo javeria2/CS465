@@ -13,9 +13,12 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle actionBarDrawerToggle;
     FragmentTransaction fragmentTransaction;
     NavigationView navigationView;
+    MaterialSearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,11 +78,22 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+
     }
 
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         actionBarDrawerToggle.syncState();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        searchView = (MaterialSearchView)findViewById(R.id.search_view);
+        getMenuInflater().inflate(R.menu.menu_items, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        searchView.setMenuItem(item);
+        return true;
     }
 }
