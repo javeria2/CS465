@@ -1,0 +1,9 @@
+<CheckBox
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:drawableRight="@drawable/avatar"
+    android:checked="true"
+    />
+
+    <!--android:button="@drawable/custom_drawable_checkbox"-->
