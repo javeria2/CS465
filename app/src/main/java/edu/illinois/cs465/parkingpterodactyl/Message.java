@@ -21,7 +21,24 @@ public class Message {
 
     public String getPastTime() {
         Calendar currentTime = Calendar.getInstance();
-        // TODO - Compare the current time to the message creation time and return the appropriate string
-        return "now";
+        long currentMillis = currentTime.getTimeInMillis();
+        long messageMillis = this.time.getTimeInMillis();
+
+        long minuteDifference = (currentMillis - messageMillis) / 60000;
+        long hourDifference = minuteDifference / 60;
+        long dayDifference = hourDifference / 24;
+        long weekDifference = dayDifference / 7;
+
+        if (minuteDifference < 2) {
+            return "now";
+        } else if (minuteDifference < 60) {
+            return "" + minuteDifference + "m";
+        } else if (hourDifference < 24) {
+            return "" + hourDifference + "h";
+        } else if (dayDifference < 7) {
+            return "" + dayDifference + "d";
+        } else {
+            return "" + weekDifference + "w";
+        }
     }
 }

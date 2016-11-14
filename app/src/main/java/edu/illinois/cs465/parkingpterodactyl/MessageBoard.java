@@ -82,8 +82,10 @@ public class MessageBoard extends AppCompatActivity {
             }
         });
 
+        // TODO - remove the messages when the action is paused and add them when it becomes visible. This will cause the times to be updated.
         LinkedList<Message> messages = new LinkedList<>();
-        messages.add(new Message("Test message"));
+        messages.add(new Message("Test message."));
+        messages.add(new Message("A second test message that is a bit longer. This message is supposed to show word wrapping."));
 
         for (Message message : messages) {
             addMessageToBoard(message);
