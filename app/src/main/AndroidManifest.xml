@@ -22,9 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".filters"></activity>
-=======
+
+        <activity android:name=".Filters"></activity>
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -40,7 +40,6 @@
         <activity
             android:name=".Navigation"
             android:label="@string/title_activity_navigation"></activity>
->>>>>>> 18e8d6c2fe6d19474c039230dfb210317ebb960d
     </application>
 
 </manifest>
