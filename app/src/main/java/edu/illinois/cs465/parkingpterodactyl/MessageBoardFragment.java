@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+
 import java.util.LinkedList;
 
 public class MessageBoardFragment extends Fragment {

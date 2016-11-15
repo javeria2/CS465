@@ -6,14 +6,6 @@
     tools:context="edu.illinois.cs465.parkingpterodactyl.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home Fragment"
-        android:gravity="center"
-        android:textSize="35dp"
-        android:textStyle="bold"
-        />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
