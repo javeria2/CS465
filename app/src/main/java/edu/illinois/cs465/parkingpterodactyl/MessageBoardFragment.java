@@ -3,28 +3,33 @@ package edu.illinois.cs465.parkingpterodactyl;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import java.util.LinkedList;
 
-public class MessageBoard extends AppCompatActivity {
+public class MessageBoardFragment extends Fragment {
+
+    public MessageBoardFragment() {
+        // Required empty constructor
+    }
 
     private int dpToPx(int dp) {
-        float density = getApplicationContext().getResources().getDisplayMetrics().density;
+        float density = getActivity().getApplicationContext().getResources().getDisplayMetrics().density;
         return (int)(density * dp);
     }
 
     private void addMessageToBoard(Message m) {
          // Create the linear layout to hold the message
-        LinearLayout messagesContainer = (LinearLayout)findViewById(R.id.content_message_board);
+        LinearLayout messagesContainer = (LinearLayout)getActivity().findViewById(R.id.content_message_board);
 
-        LinearLayout newContainer = new LinearLayout(this);
+        LinearLayout newContainer = new LinearLayout(getActivity());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -35,7 +40,7 @@ public class MessageBoard extends AppCompatActivity {
         newContainer.setBackgroundResource(R.drawable.message_board_border);
 
          // Create the text view with the message text
-        TextView messageText = new TextView(this);
+        TextView messageText = new TextView(getActivity());
         messageText.setText(m.getText());
         LinearLayout.LayoutParams messageTextParams = new LinearLayout.LayoutParams(
                 0,
@@ -50,7 +55,7 @@ public class MessageBoard extends AppCompatActivity {
         newContainer.addView(messageText);
 
          // Create the text view with the time text
-        TextView messageTime = new TextView(this);
+        TextView messageTime = new TextView(getActivity());
         messageTime.setText(m.getPastTime());
         LinearLayout.LayoutParams messageTimeParams = new LinearLayout.LayoutParams(
                 dpToPx(50),
@@ -67,13 +72,16 @@ public class MessageBoard extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message_board);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_message_board, container, false);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,7 +105,6 @@ public class MessageBoard extends AppCompatActivity {
         for (Message message : messages) {
             addMessageToBoard(message);
         }
-
     }
 
 }

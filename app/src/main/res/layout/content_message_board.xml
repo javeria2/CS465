@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:showIn="@layout/activity_message_board">
+    tools:showIn="@layout/fragment_message_board">
 
     <LinearLayout android:id="@+id/content_message_board"
         android:layout_width="match_parent"
