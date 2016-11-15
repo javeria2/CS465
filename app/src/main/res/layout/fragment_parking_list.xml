@@ -5,7 +5,7 @@
     android:id="@+id/activity_parking_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.illinois.cs465.parkingpterodactyl.ParkingList">
+    tools:context="edu.illinois.cs465.parkingpterodactyl.ParkingListFragment">
 
     <LinearLayout
         android:id="@+id/options"
