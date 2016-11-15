@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.main_container, new HomeFragment());
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Parking Pterodactyl");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
                         break;
@@ -63,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.main_container, new MessageBoardFragment());
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Message Board");
                         item.setChecked(true);
                         drawerLayout.closeDrawers();
                         break;
