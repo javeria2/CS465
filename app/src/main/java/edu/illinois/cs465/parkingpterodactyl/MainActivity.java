@@ -15,6 +15,8 @@ import android.view.MenuItem;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
+import java.util.LinkedList;
+
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawerLayout;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     FragmentTransaction fragmentTransaction;
     NavigationView navigationView;
     MaterialSearchView searchView;
+    LinkedList<Message> messages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Parking Pterodactyl");
         navigationView = (NavigationView)findViewById(R.id.navigation_view);
+
+        // Create fake starting messages
+        messages = new LinkedList<>();
+        messages.add(new Message("There is a lot of parking left at the lot on the corner of Springfield and Gregory."));
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

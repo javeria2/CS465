@@ -15,9 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:inputType="text"
-            android:imeOptions="actionDone"
-            android:imeActionLabel="@string/message_post"
             android:hint="@string/message_hint"
             android:background="@drawable/message_board_border"
             android:layout_margin="20dp"
@@ -26,6 +23,7 @@
             android:gravity="left"/>
         
         <Button
+            android:id="@+id/post_button"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:text="@string/message_post"
