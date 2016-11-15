@@ -29,7 +29,7 @@ public class Message {
         long dayDifference = hourDifference / 24;
         long weekDifference = dayDifference / 7;
 
-        if (minuteDifference < 2) {
+        if (minuteDifference < 1) {
             return "now";
         } else if (minuteDifference < 60) {
             return "" + minuteDifference + "m";
