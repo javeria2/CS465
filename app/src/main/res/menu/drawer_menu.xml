@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home_id"
+            android:title="Home"></item>
+
+        <item
+            android:title="Select Car Size"
+            >
+            <menu>
+                <item
+                    android:title="Hatchback"
+                    app:actionLayout="@layout/hatchback_button" />
+                <item
+                    android:title="Sedan"
+                    app:actionLayout="@layout/sedan_button" />
+                <item
+                    android:title="SUV"
+                    app:actionLayout="@layout/suv_button" />
+                <item
+                    android:title="Truck"
+                    app:actionLayout="@layout/truck_button" />
+            </menu>
+        </item>
+
+        <item
+        android:id="@+id/messages_id"
+        android:title="Message Board">
+        </item>
+        <View
+            android:id="@+id/SplitLine_hor1"
+            android:layout_width="match_parent"
+            android:layout_height= "2dp"
+            android:background="@color/gray" />
+        <item
+            android:id="@+id/signout_id"
+            android:title="Sign Out">
+        </item>
+    </group>
+
+</menu>
