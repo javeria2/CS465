@@ -4,23 +4,35 @@
     android:layout_height="520dp"
     tools:context="edu.illinois.cs465.parkingpterodactyl.GMapFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:text="@string/hello_blank_fragment" />-->
-
     <fragment
         android:id="@+id/map"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         class="com.google.android.gms.maps.MapFragment"/>
 
-    <Button
-        android:text="Button"
-        android:layout_width="100dp"
+    <TextView
+        android:text="Filter"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button" />
+        android:id="@+id/filter"
+        android:textSize="23sp"
+        android:textColor="@android:color/black"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="50dp"
+        android:layout_toRightOf="@+id/location_name" />
+
+    <TextView
+        android:text="Location"
+        android:layout_width="264dp"
+        android:layout_height="47dp"
+        android:id="@+id/location_name"
+        android:textSize="23sp"
+        android:textColor="@android:color/black"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp" />
+
 
 
 </FrameLayout>
