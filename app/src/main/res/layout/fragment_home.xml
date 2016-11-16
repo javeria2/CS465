@@ -18,7 +18,7 @@
             android:layout_gravity="center"
             android:layout_marginRight="10dp"
             android:gravity="center"
-            android:hint="Where are you going?"/>
+            android:hint="Where are you going?" />
 
         <ImageButton
             android:id="@+id/main_search_button"
