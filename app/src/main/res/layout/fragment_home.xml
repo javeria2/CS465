@@ -24,6 +24,31 @@
         app:searchSuggestionIcon="@drawable/ic_suggestion"
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_margin="20dp">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:hint="Where are you going?"/>
+
+        <Button
+            android:id="@+id/main_search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Search"/>
+    </LinearLayout>
+
     <!--<ListView-->
         <!--android:id="@+id/listView"-->
         <!--android:layout_width="match_parent"-->
