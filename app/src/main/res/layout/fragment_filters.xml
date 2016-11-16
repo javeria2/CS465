@@ -27,10 +27,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/paid"
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:layout_alignParentStart="true"
-        android:paddingBottom="8sp"
-        android:paddingTop="8sp"/>
+        android:paddingBottom="5sp"
+        android:paddingTop="5sp"/>
 
 
     <TextView
@@ -41,19 +41,6 @@
         android:textColor="@android:color/black"
         android:layout_below="@+id/special_event"
         android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/max_distance"
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        tools:text="Maximum Walking Distance:"
-        android:layout_below="@+id/line2"
-        android:layout_alignParentStart="true"
-        android:textSize="23sp"
-        android:paddingBottom="8sp"
-        android:paddingTop="8sp"/>
 
     <TextView
         android:id="@+id/line3"
@@ -79,51 +66,12 @@
         android:text="Special Event"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:layout_below="@+id/meter"
         android:layout_alignParentStart="true"
-        android:paddingBottom="8sp"
-        android:paddingTop="8sp"/>
-
-
-    <TextView
-        android:id="@+id/location_name"
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Location"
-        android:textSize="30sp"
-        android:textColor="@android:color/black"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
         android:paddingBottom="5sp"
-        android:paddingTop="5sp"
-        android:layout_toStartOf="@+id/down_arrow" />
+        android:paddingTop="5sp"/>
 
-    <TextView
-        android:id="@+id/parking_type"
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Type of Parking:"
-        android:textSize="23sp"
-        android:textColor="@android:color/black"
-        android:layout_below="@+id/line1"
-        android:layout_alignParentStart="true"
-        android:paddingBottom="7sp"
-        android:paddingTop="7sp"/>
-
-    <TextView
-        android:id="@+id/duration"
-        android:text="Duration of Stay:"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="23sp"
-        android:textColor="@android:color/black"
-        android:layout_below="@+id/line3"
-        android:layout_alignParentStart="true"
-        android:paddingBottom="8sp"
-        android:paddingTop="8sp"/>
 
     <SeekBar
         android:id="@+id/duration_seek_bar"
@@ -151,37 +99,15 @@
         android:thumbTint="@android:color/black"
         android:progressTint="@android:color/black" />
 
-    <CheckBox
-        android:id="@+id/free"
-        android:text="Free"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:paddingBottom="8sp"
-        android:paddingTop="8sp"
-        android:layout_below="@+id/parking_type"
-        android:layout_alignParentStart="true" />
-
-    <CheckBox
-        android:id="@+id/paid"
-        android:text="Paid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:paddingBottom="8sp"
-        android:paddingTop="8sp"
-        android:layout_below="@+id/free"
-        android:layout_alignParentStart="true" />
-
     <TextView
         android:id="@+id/max_payment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Maximum Payment:"
         android:textColor="@android:color/black"
-        android:textSize="23sp"
-        android:paddingBottom="8sp"
-        android:paddingTop="8sp"
+        android:textSize="19sp"
+        android:paddingBottom="5sp"
+        android:paddingTop="5sp"
         android:layout_below="@+id/line4"
         android:layout_alignParentStart="true" />
 
@@ -206,7 +132,77 @@
         android:id="@+id/down_arrow"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/location_name"
-        android:layout_alignTop="@+id/location_name"/>
+        android:layout_alignTop="@+id/location_name" />
+
+    <TextView
+        android:id="@+id/max_distance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:text="Maximum Walking Distance:"
+        android:textSize="19sp"
+        android:paddingBottom="5sp"
+        android:paddingTop="5sp"
+        android:layout_below="@+id/line2"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/duration"
+        android:text="Duration of Stay:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="19sp"
+        android:textColor="@android:color/black"
+        android:paddingBottom="5sp"
+        android:paddingTop="5sp"
+        android:layout_below="@+id/line3"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/location_name"
+        android:text="Location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        android:paddingBottom="5sp"
+        android:paddingTop="5sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/parking_type"
+        android:text="Type of Parking:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="19sp"
+        android:textColor="@android:color/black"
+        android:paddingBottom="4sp"
+        android:paddingTop="4sp"
+        android:layout_below="@+id/line1"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:id="@+id/free"
+        android:text="Free"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:paddingBottom="5sp"
+        android:paddingTop="5sp"
+        android:layout_below="@+id/parking_type"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:id="@+id/paid"
+        android:text="Paid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:paddingBottom="5sp"
+        android:paddingTop="5sp"
+        android:layout_below="@+id/free"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

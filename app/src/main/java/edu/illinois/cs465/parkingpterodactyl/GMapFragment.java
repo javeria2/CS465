@@ -5,10 +5,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -85,6 +87,17 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
         super.onViewCreated(view, savedInstanceState);
         MapFragment fragment = (MapFragment)getActivity().getFragmentManager().findFragmentById(R.id.map);
         fragment.getMapAsync(this);
+
+        ImageButton up_arrow = (ImageButton) getActivity().findViewById(R.id.up_arrow);
+        up_arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_container,  new FiltersFragment());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
     }
 
     //this function adds a new marker on the map

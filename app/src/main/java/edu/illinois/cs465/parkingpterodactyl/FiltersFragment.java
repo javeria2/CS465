@@ -31,10 +31,10 @@ public class FiltersFragment extends Fragment {
         down_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.main_container,  new AddMessageFragment());
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_container,  new GMapFragment());
                 transaction.addToBackStack(null);
-                transaction.commit();*/
+                transaction.commit();
             }
         });
 
