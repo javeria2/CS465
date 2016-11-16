@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 
 /**
@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        Button searchButton = (Button) getActivity().findViewById(R.id.main_search_button);
+        ImageButton searchButton = (ImageButton) getActivity().findViewById(R.id.main_search_button);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
