@@ -24,7 +24,7 @@ public class MessageBoardFragment extends Fragment {
     }
 
     private void addMessageToBoard(Message m) {
-         // Create the linear layout to hold the message
+        // Create the linear layout to hold the message
         LinearLayout messagesContainer = (LinearLayout)getActivity().findViewById(R.id.content_message_board);
 
         LinearLayout newContainer = new LinearLayout(getActivity());
@@ -37,7 +37,7 @@ public class MessageBoardFragment extends Fragment {
         newContainer.setOrientation(LinearLayout.HORIZONTAL);
         newContainer.setBackgroundResource(R.drawable.message_board_border);
 
-         // Create the text view with the message text
+        // Create the text view with the message text
         TextView messageText = new TextView(getActivity());
         messageText.setText(m.getText());
         LinearLayout.LayoutParams messageTextParams = new LinearLayout.LayoutParams(
@@ -52,7 +52,7 @@ public class MessageBoardFragment extends Fragment {
 
         newContainer.addView(messageText);
 
-         // Create the text view with the time text
+        // Create the text view with the time text
         TextView messageTime = new TextView(getActivity());
         messageTime.setText(m.getPastTime());
         LinearLayout.LayoutParams messageTimeParams = new LinearLayout.LayoutParams(
@@ -103,5 +103,4 @@ public class MessageBoardFragment extends Fragment {
             addMessageToBoard(message);
         }
     }
-
 }

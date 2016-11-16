@@ -9,11 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
-
-import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.LinkedList;
 
@@ -23,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle actionBarDrawerToggle;
     FragmentTransaction fragmentTransaction;
     NavigationView navigationView;
-    MaterialSearchView searchView;
     LinkedList<Message> messages;
 
     LinkedList<ParkingLocations> parkingList;
@@ -89,34 +84,4 @@ public class MainActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         actionBarDrawerToggle.syncState();
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        searchView = (MaterialSearchView)findViewById(R.id.search_view);
-        searchView.setHint("Where are you going?");
-        getMenuInflater().inflate(R.menu.menu_items, menu);
-        MenuItem item = menu.findItem(R.id.action_search);
-        searchView.setMenuItem(item);
-
-        //listener to detect click on search button, we navigate to the map view from here
-        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
-
-            //for now, just printing stuff to the logs
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Log.e("onQueryTextSubmit", "called");
-                return false;
-            }
-
-            //for now, just printing stuff to the logs
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                Log.e("onQueryTextChange", "called");
-                return false;
-            }
-        });
-
-        return true;
-    }
-
 }
