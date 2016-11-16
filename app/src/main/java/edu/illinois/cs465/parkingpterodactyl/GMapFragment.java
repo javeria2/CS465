@@ -32,9 +32,10 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback{
     @Override
     public void onMapReady(GoogleMap googleMap) {
         gmap = googleMap;
-        LatLng sydney = new LatLng(-34, 151);
+        LatLng sydney = new LatLng(10.762984, 106.682329);
         gmap.addMarker(new MarkerOptions().position(sydney).title("Marker in sydney"));
-        gmap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 13));
+        gmap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 17));
+        gmap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
     }
 
     public View onCreateVew(LayoutInflater inflater, ViewGroup container,
