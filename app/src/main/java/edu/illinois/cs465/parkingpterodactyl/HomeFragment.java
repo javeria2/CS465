@@ -50,7 +50,7 @@ public class HomeFragment extends Fragment {
                         InputMethodManager.HIDE_NOT_ALWAYS);
 
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.main_container,  new MapFragment());
+                transaction.replace(R.id.main_container,  new GMapFragment());
                 transaction.addToBackStack(null);
                 transaction.commit();
             }

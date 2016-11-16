@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.illinois.cs465.parkingpterodactyl">
 
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -33,11 +36,15 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyBl6diE3Ebj5PebTOTyXeuYcf3Bz28LQoQ" />
 
         <activity
             android:name=".Navigation"
             android:label="@string/title_activity_navigation"></activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
     </application>
 
 </manifest>
