@@ -1,7 +1,7 @@
 package edu.illinois.cs465.parkingpterodactyl;
 
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -38,9 +38,9 @@ public class Navigation extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //get lat and long of parking location
+        LatLng location = new LatLng(41.8781195, -87.6469626);
+        mMap.addMarker(new MarkerOptions().position(location).title("Destination"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
     }
 }
