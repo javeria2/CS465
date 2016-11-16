@@ -1,28 +1,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.illinois.cs465.parkingpterodactyl.HomeFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:background="@color/colorPrimary"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_width="match_parent" />
-
-    <com.miguelcatalan.materialsearchview.MaterialSearchView
-        android:id="@+id/search_view"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        app:searchBackground="@color/white"
-        app:searchSuggestionBackground="@color/white"
-        app:searchCloseIcon="@drawable/ic_action_navigation_close"
-        app:searchBackIcon="@drawable/ic_action_navigation_arrow_back"
-        app:searchSuggestionIcon="@drawable/ic_suggestion"
-        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,12 +29,4 @@
             android:text="Search"/>
     </LinearLayout>
 
-    <!--<ListView-->
-        <!--android:id="@+id/listView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_below="@+id/search_view"-->
-        <!--android:divider="#806326"-->
-        <!--android:dividerHeight="1dp"-->
-        <!--/>-->
 </FrameLayout>
