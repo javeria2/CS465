@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     LinkedList<Message> messages;
 
+    LinkedList<ParkingLocations> parkingList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
