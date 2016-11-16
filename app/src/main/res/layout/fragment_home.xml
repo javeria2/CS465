@@ -40,21 +40,15 @@
             android:gravity="center"
             android:hint="Where are you going?"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/main_search_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Search"/>
+            android:text="Search"
+            android:src="@drawable/ic_action_action_search"
+            />
     </LinearLayout>
 
-    <!--<ListView-->
-        <!--android:id="@+id/listView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_below="@+id/search_view"-->
-        <!--android:divider="#806326"-->
-        <!--android:dividerHeight="1dp"-->
-        <!--/>-->
 </FrameLayout>
