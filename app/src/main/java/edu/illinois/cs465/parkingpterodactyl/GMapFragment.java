@@ -40,21 +40,17 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         gmap = googleMap;
 
-        addCustomMarkers(R.drawable.pin4, 40.1104619, -88.230041);
-        addCustomMarkers(R.drawable.pin2, 40.110109, -88.2303623);
         addCustomMarkers(R.drawable.pin3, 40.110363, -88.230620);
-        addCustomMarkers(R.drawable.pin5, 40.110072, -88.231741);
-        addCustomMarkers(R.drawable.pin1, 40.110035, -88.228447);
-        addCustomMarkers(R.drawable.pin6, 40.110790, -88.229032);
-        addCustomMarkers(R.drawable.pin7, 40.110634, -88.230207);
+        addCustomMarkers(R.drawable.pin3, 40.110035, -88.228447);
+        addCustomMarkers(R.drawable.pin7, 40.110790, -88.229032);
 
-        LatLng pin = new LatLng(40.1104619, -88.230041);
+        LatLng pin = new LatLng(40.110363, -88.230620);
         LatLng pin1 = new LatLng(40.110035, -88.228447);
-        LatLng pin2 = new LatLng(40.110109, -88.2303623);
+        LatLng pin2 = new LatLng(40.110790, -88.229032);
 
-        addCustomCircle(pin, Color.BLACK, Color.BLUE);
-        addCustomCircle(pin1, Color.BLACK, Color.YELLOW);
-        addCustomCircle(pin2, Color.BLACK, Color.CYAN);
+        addCustomCircle(pin, Color.BLACK, Color.GREEN);
+        addCustomCircle(pin1, Color.BLACK, Color.GREEN);
+        addCustomCircle(pin2, Color.BLACK, Color.RED);
 
 
         gmap.moveCamera(CameraUpdateFactory.newLatLngZoom(pin, 17));
@@ -88,13 +84,13 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
         LatLng pin = new LatLng(lat,lon);
         gmap.addMarker(new MarkerOptions()
                 .position(pin)
-                .title("Marker in sydney")
+                /*.title("Marker in sydney")*/
                 .icon(BitmapDescriptorFactory.fromResource(resource)));
     }
 
     //this function adds a new circle
     public void addCustomCircle(LatLng pin, int color1, int color2){
-        Circle circle = gmap.addCircle(new CircleOptions()
+         Circle circle = gmap.addCircle(new CircleOptions()
                 .center(pin)
                 .radius(10)
                 .strokeColor(color1)
