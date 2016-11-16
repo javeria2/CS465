@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     MaterialSearchView searchView;
     LinkedList<Message> messages;
 
+    LinkedList<ParkingLocations> parkingList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
