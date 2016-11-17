@@ -6,19 +6,30 @@ package edu.illinois.cs465.parkingpterodactyl;
 
 public class ParkingLocations {
     private String nameOfLoc;
-    private String nameForMaps;
+    private int Latitude;
+    private int Longitude;
 
-    public ParkingLocations(String locationName, String mapsDest) {
+    public ParkingLocations(String locationName, int LatitudeVal, int LongitudeVal) {
         nameOfLoc = locationName;
-        nameForMaps = mapsDest;
-    }
-
-    public String getNameForGoogleMaps() {
-        return nameForMaps;
+        Latitude = LatitudeVal;
+        Longitude = LongitudeVal;
     }
 
     public String getNameOfLoc() {
         return nameOfLoc;
+    }
+
+    public int getLatitude() {
+        return Latitude;
+    }
+
+    public int getLongitude() {
+        return Longitude;
+    }
+
+    public String getNameForGoogleMaps() {
+        String GoogleMapsAddress = "google.navigation:q=" + getLatitude() + "," + getLongitude();
+        return GoogleMapsAddress;
     }
 
 }

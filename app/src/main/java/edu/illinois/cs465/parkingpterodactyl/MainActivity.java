@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
         //create linked list for parking selections
         parkingList = new LinkedList<>();
         //fake parking locations
-        parkingList.add(new ParkingLocations("The Union", "google.navigation:q = Illini+Union,+Urbana+IL"));
-        parkingList.add(new ParkingLocations("Meters on sixth street", "google.navigation:q = +Noodles+and+Co,+Champaign+IL+61820"));
-        parkingList.add(new ParkingLocations("Grainger Library", "google.navigation:q = +Grainger+Library,+Urbana+IL"));
+        parkingList.add(new ParkingLocations("The Union", 5, 5));
+        parkingList.add(new ParkingLocations("Meters on sixth street", 10, 10));
+        parkingList.add(new ParkingLocations("Grainger Library", 10, 10));
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

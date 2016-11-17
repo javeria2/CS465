@@ -5,6 +5,7 @@
     android:id="@+id/activity_parking_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="edu.illinois.cs465.parkingpterodactyl.ParkingListFragment">
 
     <LinearLayout
@@ -78,6 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:layout_below="@+id/selectionTwo"
+            android:background="@drawable/list_border"
             android:orientation="vertical">
 
             <ImageView
