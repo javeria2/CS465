@@ -50,7 +50,7 @@ public class ParkingListFragment extends Fragment {
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
                 startActivity(mapIntent);
-                //create occupied button
+                //create occupied button??
             }
 
             /*ImageButton occupiedButton = getActivity().findViewById(R.id.occupied);
