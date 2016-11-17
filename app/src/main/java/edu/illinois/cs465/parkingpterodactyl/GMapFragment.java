@@ -109,9 +109,6 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
                 transaction.commit();
             }
         });
-
-
-
     }
 
     //this function adds a new marker on the map
