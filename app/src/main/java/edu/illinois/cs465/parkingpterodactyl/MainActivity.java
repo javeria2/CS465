@@ -25,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
     LinkedList<ParkingLocations> parkingList;
 
+    // TODO - Come up with a cleaner way to do this.
+    // Variables keeping track of whether or not the overlays have been seen
+    Boolean messageBoardOverlaySeen;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+        messageBoardOverlaySeen = false;
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

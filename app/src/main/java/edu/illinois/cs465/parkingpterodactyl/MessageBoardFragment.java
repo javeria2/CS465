@@ -90,7 +90,12 @@ public class MessageBoardFragment extends Fragment {
         FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
         //Help Overlay Code
         final View topLevelLayout = getActivity().findViewById(R.id.overlaymessagefragment);
-        topLevelLayout.setVisibility(View.VISIBLE);
+        if (!((MainActivity)getActivity()).messageBoardOverlaySeen) {
+            topLevelLayout.setVisibility(View.VISIBLE);
+            ((MainActivity)getActivity()).messageBoardOverlaySeen = true;
+        } else {
+            topLevelLayout.setVisibility(View.INVISIBLE);
+        }
         topLevelLayout.setOnTouchListener(new View.OnTouchListener(){
 
             @Override
