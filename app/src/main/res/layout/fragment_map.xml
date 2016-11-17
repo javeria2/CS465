@@ -11,17 +11,6 @@
         android:layout_height="match_parent"
         class="com.google.android.gms.maps.MapFragment"/>
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/up_arrow"
-        android:layout_gravity="bottom|right"
-        android:layout_marginRight="30dp"
-        android:paddingBottom="14dp"
-        android:paddingTop="7dp"
-        android:background="@color/white"
-        android:id="@+id/up_arrow" />
-
     <TextView
         android:text="     Location"
         android:layout_width="247dp"
@@ -46,6 +35,17 @@
         android:paddingTop="8dp"
         android:layout_gravity="bottom|right"
         android:layout_toRightOf="@+id/location_name" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/up_arrow"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="30dp"
+        android:paddingBottom="14dp"
+        android:paddingTop="7dp"
+        android:background="@color/white"
+        android:id="@+id/up_arrow" />
 
 
 </FrameLayout>
