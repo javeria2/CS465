@@ -1,9 +1,12 @@
 package edu.illinois.cs465.parkingpterodactyl;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +16,8 @@ import android.widget.TextView;
 
 
 public class ParkingListFragment extends Fragment {
+
+    private static final int notificationid = 0;
 
     public ParkingListFragment() {
         //required empty constructor
@@ -51,6 +56,25 @@ public class ParkingListFragment extends Fragment {
                 mapIntent.setPackage("com.google.android.apps.maps");
                 startActivity(mapIntent);
                 //create occupied button??
+
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(getActivity())
+                                .setSmallIcon(R.drawable.launcher_icon)
+                                .setContentTitle("Spot Occupied")
+                                .setContentText("Navigate to next spot.");
+
+                Uri secondGmmIntentUri = Uri.parse(((MainActivity) getActivity()).parkingList.get(1).getNameForGoogleMaps());
+                Intent secondMapIntent = new Intent(Intent.ACTION_VIEW, secondGmmIntentUri);
+                secondMapIntent.setPackage("com.google.android.apps.maps");
+                PendingIntent secondIntentPending = PendingIntent.getActivity(getActivity(),
+                        0, secondMapIntent,
+                        PendingIntent.FLAG_CANCEL_CURRENT);
+
+                mBuilder.setContentIntent(secondIntentPending);
+
+                NotificationManager mNotificationManager =
+                        (NotificationManager) getActivity().getSystemService(getActivity().NOTIFICATION_SERVICE);
+                mNotificationManager.notify(notificationid, mBuilder.build());
             }
 
             /*ImageButton occupiedButton = getActivity().findViewById(R.id.occupied);
