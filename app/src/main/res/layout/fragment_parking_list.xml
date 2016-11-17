@@ -94,6 +94,6 @@
         android:background="@null"
         android:onClick=""
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/navigation_arrow" />
+        app:srcCompat="@drawable/pin1" />
 
 </RelativeLayout>

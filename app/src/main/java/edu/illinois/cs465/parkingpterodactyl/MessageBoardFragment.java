@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -87,6 +88,18 @@ public class MessageBoardFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        //Help Overlay Code
+        final View topLevelLayout = getActivity().findViewById(R.id.overlaymessagefragment);
+        topLevelLayout.setVisibility(View.VISIBLE);
+        topLevelLayout.setOnTouchListener(new View.OnTouchListener(){
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                topLevelLayout.setVisibility(View.INVISIBLE);
+                return false;
+            }
+
+        });
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
