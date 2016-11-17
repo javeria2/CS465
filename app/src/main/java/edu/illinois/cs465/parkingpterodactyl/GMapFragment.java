@@ -12,13 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -124,6 +124,9 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
                 transaction.commit();
             }
         });
+
+        TextView locationName = (TextView)getActivity().findViewById(R.id.location_name);
+        locationName.setText(((MainActivity)getActivity()).lastSearch);
     }
 
     //this function adds a new marker on the map

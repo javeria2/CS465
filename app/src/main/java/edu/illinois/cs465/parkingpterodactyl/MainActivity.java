@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     // Variables keeping track of whether or not the overlays have been seen
     Boolean messageBoardOverlaySeen;
 
+    // TODO - this really shouldn't be done this way either...
+    String lastSearch;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         messageBoardOverlaySeen = false;
+        lastSearch = "Zach";
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
