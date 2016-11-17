@@ -21,6 +21,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class GMapFragment extends Fragment implements OnMapReadyCallback {
@@ -52,18 +53,32 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         gmap = googleMap;
 
-        addCustomMarkers(R.drawable.pin3, 40.109700, -88.230400);
-        addCustomMarkers(R.drawable.pin3, 40.111200, -88.232050);
-        addCustomMarkers(R.drawable.pin7, 40.110790, -88.229032);
+        //addCustomMarkers(R.drawable.pin3, 40.109700, -88.230400);
+        Marker marker1 = gmap.addMarker(new MarkerOptions()
+                .position(new LatLng(40.109400, -88.230400))
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                .title("Free Parking")
+                .snippet("Distance to Destination: 0.20 mile(s)"));
+        Marker marker2 = gmap.addMarker(new MarkerOptions()
+                .position(new LatLng(40.111200, -88.232050))
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                .title("Free Parking")
+                .snippet("Distance to Destination: 0.18 mile(s)"));
+        Marker marker3 = gmap.addMarker(new MarkerOptions()
+                .position(new LatLng(40.110790, -88.229032))
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                .title("Paid Parking ($5/hr)")
+                .snippet("Distance to Destination: 0.08 mile(s)"));
 
-        LatLng pin = new LatLng(40.109700, -88.230400);
-        LatLng pin1 = new LatLng(40.110790, -88.229032);
+        LatLng pin = new LatLng(40.109400, -88.230400);
+        LatLng pin1 = new LatLng(40.111200, -88.232050);
+        LatLng zoomlatlng = new LatLng(40.110000, -88.230550);
 
         addCustomCircle(pin, Color.BLACK, Color.GREEN);
-        addCustomCircle(pin1, Color.BLACK, Color.RED);
+        addCustomCircle(pin1, Color.BLACK, Color.GREEN);
 
 
-        gmap.moveCamera(CameraUpdateFactory.newLatLngZoom(pin, 17));
+        gmap.moveCamera(CameraUpdateFactory.newLatLngZoom(zoomlatlng, 17));
         if (ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -122,7 +137,7 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
 
     //this function adds a new circle
     public void addCustomCircle(LatLng pin, int color1, int color2) {
-        Circle circle = gmap.addCircle(new CircleOptions()
+        gmap.addCircle(new CircleOptions()
                 .center(pin)
                 .radius(10)
                 .strokeColor(color1)
