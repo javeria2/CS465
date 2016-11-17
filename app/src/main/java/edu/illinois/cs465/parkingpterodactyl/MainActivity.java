@@ -39,9 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Help Overlay Code
         final View topLevelLayout = findViewById(R.id.top_layout);
-        // TODO - change this back to visible once the overlay actually exists.
-        //topLevelLayout.setVisibility(View.VISIBLE);
-        topLevelLayout.setVisibility(View.INVISIBLE);
+        topLevelLayout.setVisibility(View.VISIBLE);
         topLevelLayout.setOnTouchListener(new View.OnTouchListener(){
 
             @Override
