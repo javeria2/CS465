@@ -47,6 +47,7 @@ public class AddMessageFragment extends Fragment {
                         InputMethodManager.HIDE_NOT_ALWAYS);
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.main_container,  new MessageBoardFragment());
+                transaction.addToBackStack(null);
                 transaction.commit();
             }
         });
