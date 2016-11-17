@@ -14,7 +14,7 @@ public class ParkingLocations {
     }
 
     public String getNameForGoogleMaps() {
-        return nameOfLoc;
+        return nameForMaps;
     }
 
     public String getNameOfLoc() {
