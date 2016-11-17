@@ -48,6 +48,13 @@ public class MainActivity extends AppCompatActivity {
         messages = new LinkedList<>();
         messages.add(new Message("There is a lot of parking left at the lot on the corner of Springfield and Gregory."));
 
+        //create linked list for parking selections
+        parkingList = new LinkedList<>();
+        //fake parking locations
+        parkingList.add(new ParkingLocations("The Union", "Illini Union, Urbana, IL"));
+        parkingList.add(new ParkingLocations("Meters on sixth street", "Noodles and Co, Champaign, IL 61820"));
+        parkingList.add(new ParkingLocations("Grainger Library", "Grainger Library, Urbana, IL"));
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
