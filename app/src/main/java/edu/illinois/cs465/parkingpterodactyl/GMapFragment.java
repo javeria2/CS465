@@ -10,8 +10,8 @@ import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -24,8 +24,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class GMapFragment extends Fragment implements OnMapReadyCallback {
-    private GoogleMap gmap;
     private static View view;
+    private GoogleMap gmap;
 
     public GMapFragment() {
         // Required empty constructor
@@ -98,6 +98,20 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
                 transaction.commit();
             }
         });
+
+        Button goToListButton = (Button) getActivity().findViewById(R.id.goToList);
+        goToListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_container, new ParkingListFragment());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+
+
     }
 
     //this function adds a new marker on the map

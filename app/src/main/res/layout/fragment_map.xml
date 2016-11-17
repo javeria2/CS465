@@ -5,47 +5,58 @@
     android:layout_height="520dp"
     tools:context="edu.illinois.cs465.parkingpterodactyl.GMapFragment">
 
-    <fragment
-        android:id="@+id/map"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        class="com.google.android.gms.maps.MapFragment"/>
+    <Button
+        android:id="@+id/goToList"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="100px"
+        android:layout_marginEnd="100px"
+        android:text="NEXT" />
 
     <ImageButton
+        android:id="@+id/up_arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/up_arrow"
         android:layout_gravity="bottom|right"
         android:layout_marginRight="30dp"
+        android:background="@color/white"
         android:paddingBottom="14dp"
         android:paddingTop="7dp"
-        android:background="@color/white"
-        android:id="@+id/up_arrow" />
+        app:srcCompat="@drawable/up_arrow" />
 
     <TextView
-        android:text="     Location"
+        android:id="@+id/location_name"
         android:layout_width="247dp"
         android:layout_height="wrap_content"
-        android:id="@+id/location_name"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
+        android:layout_gravity="bottom|left"
         android:background="@color/white"
         android:paddingBottom="18dp"
         android:paddingTop="8dp"
-        android:layout_gravity="bottom|left" />
+        android:text="     Location"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
 
     <TextView
-        android:text=" Filters             "
+        android:id="@+id/filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/filter"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
+        android:layout_gravity="bottom|right"
+        android:layout_toRightOf="@+id/location_name"
         android:background="@color/white"
         android:paddingBottom="18dp"
         android:paddingTop="8dp"
-        android:layout_gravity="bottom|right"
-        android:layout_toRightOf="@+id/location_name" />
+        android:text=" Filters             "
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <fragment
+        android:id="@+id/map"
+        class="com.google.android.gms.maps.MapFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
 
 
 </FrameLayout>
