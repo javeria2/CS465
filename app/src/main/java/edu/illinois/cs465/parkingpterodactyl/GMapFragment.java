@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.InflateException;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -100,6 +101,23 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //Help Overlay Code
+        final View topLevelLayout = getActivity().findViewById(R.id.overlaymapfragment);
+        if (!((MainActivity)getActivity()).messageBoardOverlaySeen) {
+            topLevelLayout.setVisibility(View.VISIBLE);
+            ((MainActivity)getActivity()).messageBoardOverlaySeen = true;
+        } else {
+            topLevelLayout.setVisibility(View.INVISIBLE);
+        }
+        topLevelLayout.setOnTouchListener(new View.OnTouchListener(){
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                topLevelLayout.setVisibility(View.INVISIBLE);
+                return false;
+            }
+
+        });
         MapFragment fragment = (MapFragment)getActivity().getFragmentManager().findFragmentById(R.id.map);
         fragment.getMapAsync(this);
 

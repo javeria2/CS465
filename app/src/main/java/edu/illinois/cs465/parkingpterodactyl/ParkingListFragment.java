@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -48,6 +49,23 @@ public class ParkingListFragment extends Fragment {
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
         ImageButton navigateButton = (ImageButton) getActivity().findViewById(R.id.navigate);
+        //Help Overlay Code
+        final View topLevelLayout = getActivity().findViewById(R.id.overlayparkinglocations);
+        if (!((MainActivity)getActivity()).messageBoardOverlaySeen) {
+            topLevelLayout.setVisibility(View.VISIBLE);
+            ((MainActivity)getActivity()).messageBoardOverlaySeen = true;
+        } else {
+            topLevelLayout.setVisibility(View.INVISIBLE);
+        }
+        topLevelLayout.setOnTouchListener(new View.OnTouchListener(){
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                topLevelLayout.setVisibility(View.INVISIBLE);
+                return false;
+            }
+
+        });
         navigateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
