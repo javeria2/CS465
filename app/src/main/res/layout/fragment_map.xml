@@ -16,29 +16,6 @@
         android:layout_marginEnd="100px"
         android:text="NEXT" />
 
-    <ImageButton
-        android:id="@+id/up_arrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_marginRight="30dp"
-        android:background="@color/white"
-        android:paddingBottom="14dp"
-        android:paddingTop="7dp"
-        app:srcCompat="@drawable/up_arrow" />
-
-    <TextView
-        android:id="@+id/location_name"
-        android:layout_width="247dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|left"
-        android:background="@color/white"
-        android:paddingBottom="18dp"
-        android:paddingTop="8dp"
-        android:text="     Location"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
-
     <TextView
         android:id="@+id/filter"
         android:layout_width="wrap_content"
@@ -48,7 +25,19 @@
         android:background="@color/white"
         android:paddingBottom="18dp"
         android:paddingTop="8dp"
-        android:text=" Filters             "
+        android:text=" Filters              "
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/location_name"
+        android:layout_width="234dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:background="@color/white"
+        android:paddingBottom="18dp"
+        android:paddingTop="8dp"
+        android:text="      Location"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
@@ -56,7 +45,18 @@
         android:id="@+id/map"
         class="com.google.android.gms.maps.MapFragment"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
+        android:layout_height="468dp" />
+
+    <ImageButton
+        android:id="@+id/up_arrow"
+        android:layout_width="41dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="30dp"
+        android:background="@color/white"
+        android:paddingBottom="14dp"
+        android:paddingTop="7dp"
+        app:srcCompat="@drawable/up_arrow" />
 
 
 </FrameLayout>
