@@ -51,9 +51,9 @@ public class ParkingListFragment extends Fragment {
         ImageButton navigateButton = (ImageButton) getActivity().findViewById(R.id.navigate);
         //Help Overlay Code
         final View topLevelLayout = getActivity().findViewById(R.id.overlayparkinglocations);
-        if (!((MainActivity)getActivity()).messageBoardOverlaySeen) {
+        if (!((MainActivity)getActivity()).parkingSeen) {
             topLevelLayout.setVisibility(View.VISIBLE);
-            ((MainActivity)getActivity()).messageBoardOverlaySeen = true;
+            ((MainActivity)getActivity()).parkingSeen = true;
         } else {
             topLevelLayout.setVisibility(View.INVISIBLE);
         }

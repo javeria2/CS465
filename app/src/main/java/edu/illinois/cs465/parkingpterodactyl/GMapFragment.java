@@ -103,9 +103,9 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
         super.onViewCreated(view, savedInstanceState);
         //Help Overlay Code
         final View topLevelLayout = getActivity().findViewById(R.id.overlaymapfragment);
-        if (!((MainActivity)getActivity()).messageBoardOverlaySeen) {
+        if (!((MainActivity)getActivity()).mapOverlaySeen) {
             topLevelLayout.setVisibility(View.VISIBLE);
-            ((MainActivity)getActivity()).messageBoardOverlaySeen = true;
+            ((MainActivity)getActivity()).mapOverlaySeen = true;
         } else {
             topLevelLayout.setVisibility(View.INVISIBLE);
         }
