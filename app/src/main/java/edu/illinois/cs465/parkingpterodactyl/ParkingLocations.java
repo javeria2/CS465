@@ -6,10 +6,10 @@ package edu.illinois.cs465.parkingpterodactyl;
 
 public class ParkingLocations {
     private String nameOfLoc;
-    private int Latitude;
-    private int Longitude;
+    private double Latitude;
+    private double Longitude;
 
-    public ParkingLocations(String locationName, int LatitudeVal, int LongitudeVal) {
+    public ParkingLocations(String locationName, double LatitudeVal, double LongitudeVal) {
         nameOfLoc = locationName;
         Latitude = LatitudeVal;
         Longitude = LongitudeVal;
@@ -19,11 +19,11 @@ public class ParkingLocations {
         return nameOfLoc;
     }
 
-    public int getLatitude() {
+    public double getLatitude() {
         return Latitude;
     }
 
-    public int getLongitude() {
+    public double getLongitude() {
         return Longitude;
     }
 
