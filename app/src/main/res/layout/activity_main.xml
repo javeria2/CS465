@@ -65,8 +65,8 @@
             android:id="@+id/ivInstruction"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clickable="false"
-            android:src="@drawable/mainpageoverlay" />
+            android:clickable="false" />
+            <!-- android:src="@drawable/mainpageoverlay" -->
     </RelativeLayout>
 
 </FrameLayout>

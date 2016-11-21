@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
         //Help Overlay Code
         final View topLevelLayout = findViewById(R.id.top_layout);
-        topLevelLayout.setVisibility(View.VISIBLE);
+        //topLevelLayout.setVisibility(View.VISIBLE);
+        topLevelLayout.setVisibility(View.INVISIBLE);
         topLevelLayout.setOnTouchListener(new View.OnTouchListener(){
 
             @Override
@@ -52,10 +53,10 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        messageBoardOverlaySeen = false;
-        parkingSeen=false;
-        mapOverlaySeen=false;
-        lastSearch = "Zach";
+        messageBoardOverlaySeen = true;
+        parkingSeen=true;
+        mapOverlaySeen=true;
+        lastSearch = "";
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

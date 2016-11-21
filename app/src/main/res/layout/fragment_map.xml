@@ -80,9 +80,9 @@
             android:layout_height="match_parent"
             android:layout_marginStart="0px"
             android:layout_marginEnd="0px"
-            android:clickable="false"
+            android:clickable="false" />
 
-            android:src="@drawable/map_overlay" />
+            <!-- android:src="@drawable/map_overlay" -->
     </RelativeLayout>
 
 </FrameLayout>
