@@ -25,12 +25,29 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.LinkedList;
+
 public class GMapFragment extends Fragment implements OnMapReadyCallback {
     private static View view;
     private GoogleMap gmap;
 
     public GMapFragment() {
         // Required empty constructor
+    }
+
+    private LinkedList<ParkingLocations> filterLocations(LinkedList<ParkingLocations> allLocations) {
+        ParkingLocations.carSize size = ((MainActivity)getActivity()).currentCarSize;
+        LinkedList<ParkingLocations.parkingType> types = ((MainActivity)getActivity()).allowedParkingTypes;
+
+        LinkedList<ParkingLocations> validLocations = new LinkedList<>();
+
+        for (ParkingLocations loc : allLocations) {
+            if (loc.spotBigEnough(size) && types.contains(loc.getType())) {
+                validLocations.add(loc);
+            }
+        }
+
+        return validLocations;
     }
 
     @Override
@@ -92,11 +109,6 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
         }
         gmap.setMyLocationEnabled(true);
 
-    }
-
-    public View onCreateVew(LayoutInflater inflater, ViewGroup container,
-                            Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_map, container, false);
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState) {

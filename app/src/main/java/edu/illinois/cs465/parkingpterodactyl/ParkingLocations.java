@@ -37,6 +37,8 @@ public class ParkingLocations {
         return longitude;
     }
 
+    public parkingType getType() { return type; }
+
     public String getNameForGoogleMaps() {
         return "google.navigation:q=" + getLatitude() + "," + getLongitude();
     }

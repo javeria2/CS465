@@ -34,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
     // TODO - this really shouldn't be done this way either...
     String lastSearch;
 
+    // Filter variables
+    ParkingLocations.carSize currentCarSize;
+    LinkedList<ParkingLocations.parkingType> allowedParkingTypes;
+
+    // List of all parking locations
+    LinkedList<ParkingLocations> allParkingLocations;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
