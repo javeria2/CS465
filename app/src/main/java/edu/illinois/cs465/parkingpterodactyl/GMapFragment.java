@@ -21,7 +21,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.LinkedList;
@@ -72,22 +71,33 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         gmap = googleMap;
 
+        for (ParkingLocations loc : filterLocations(((MainActivity)getActivity()).allParkingLocations)) {
+            MarkerOptions opts = new MarkerOptions().position(loc.getLatLng());
+            opts.snippet("Distance to Destination " + " mile(s)");
+
+            switch(loc.getType()) {
+                case FREE:
+                    opts.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+                    opts.title("Free Parking");
+                    break;
+                case PAID:
+                    opts.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                    opts.title("Paid Parking");
+                    break;
+                case STREET:
+                    opts.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                    opts.title("Street Parking");
+                    break;
+                case EVENT:
+                    opts.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                    opts.title("Event Parking");
+                    break;
+            }
+
+            gmap.addMarker(opts);
+        }
+
         //addCustomMarkers(R.drawable.pin3, 40.109700, -88.230400);
-        Marker marker1 = gmap.addMarker(new MarkerOptions()
-                .position(new LatLng(40.109400, -88.230400))
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
-                .title("Free Parking")
-                .snippet("Distance to Destination: 0.20 mile(s)"));
-        Marker marker2 = gmap.addMarker(new MarkerOptions()
-                .position(new LatLng(40.111200, -88.232050))
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
-                .title("Free Parking")
-                .snippet("Distance to Destination: 0.18 mile(s)"));
-        Marker marker3 = gmap.addMarker(new MarkerOptions()
-                .position(new LatLng(40.110790, -88.229032))
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
-                .title("Paid Parking ($5/hr)")
-                .snippet("Distance to Destination: 0.08 mile(s)"));
 
         LatLng zoomlatlng = new LatLng(40.110000, -88.230550);
 
