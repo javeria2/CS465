@@ -68,6 +68,7 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         gmap = googleMap;
+        gmap.clear();
 
         for (ParkingLocations loc : filterLocations(((MainActivity)getActivity()).allParkingLocations)) {
             MarkerOptions opts = new MarkerOptions().position(loc.getLatLng());
