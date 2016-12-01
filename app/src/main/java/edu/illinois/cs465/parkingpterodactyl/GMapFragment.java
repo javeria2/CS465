@@ -1,7 +1,6 @@
 package edu.illinois.cs465.parkingpterodactyl;
 
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -90,13 +89,7 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
                 .title("Paid Parking ($5/hr)")
                 .snippet("Distance to Destination: 0.08 mile(s)"));
 
-        LatLng pin = new LatLng(40.109400, -88.230400);
-        LatLng pin1 = new LatLng(40.111200, -88.232050);
         LatLng zoomlatlng = new LatLng(40.110000, -88.230550);
-
-        addCustomCircle(pin, Color.BLACK, Color.GREEN);
-        addCustomCircle(pin1, Color.BLACK, Color.GREEN);
-
 
         gmap.moveCamera(CameraUpdateFactory.newLatLngZoom(zoomlatlng, 17));
         if (ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
