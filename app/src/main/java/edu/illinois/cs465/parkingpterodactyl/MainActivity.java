@@ -96,6 +96,14 @@ public class MainActivity extends AppCompatActivity {
 
         selectedParkingLocations = (LinkedList) allParkingLocations.clone();
 
+        // Set the default car size and desired parking types
+        this.currentCarSize = ParkingLocations.carSize.LARGE;
+        this.allowedParkingTypes = new LinkedList<>();
+        this.allowedParkingTypes.add(ParkingLocations.parkingType.FREE);
+        this.allowedParkingTypes.add(ParkingLocations.parkingType.PAID);
+        this.allowedParkingTypes.add(ParkingLocations.parkingType.STREET);
+        this.allowedParkingTypes.add(ParkingLocations.parkingType.EVENT);
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

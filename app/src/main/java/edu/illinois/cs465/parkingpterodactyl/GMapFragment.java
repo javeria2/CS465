@@ -31,6 +31,8 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
     private static View view;
     private GoogleMap gmap;
 
+    // TODO(Zach) - Filter all locations and then show all of those
+
     public GMapFragment() {
         // Required empty constructor
     }

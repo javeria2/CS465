@@ -1,10 +1,8 @@
 package edu.illinois.cs465.parkingpterodactyl;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +10,9 @@ import android.widget.ImageButton;
 
 
 public class FiltersFragment extends Fragment {
+
+    // TODO(Zach) - Assign the checkbox values (and eventually the car size selection) based off of the variables in the main activity
+    // TODO(Zach) - When this fragment is navigated away from the list of spots to display should be updated based on the filters
 
     public FiltersFragment() {
         // Required empty constructor
