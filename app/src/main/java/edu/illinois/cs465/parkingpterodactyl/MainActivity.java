@@ -84,15 +84,17 @@ public class MainActivity extends AppCompatActivity {
         messages = new LinkedList<>();
         messages.add(new Message("There is a lot of parking left at the lot on the corner of Springfield and Gregory."));
 
-        //create linked list for parking selections
-        selectedParkingLocations = new LinkedList<>();
+        //create linked list for parking locations
+        allParkingLocations = new LinkedList<>();
         //fake parking locations
-        selectedParkingLocations.add(new ParkingLocations("The Union", 40.109400, -88.230400,
+        allParkingLocations.add(new ParkingLocations("The Union", 40.109400, -88.230400,
                 ParkingLocations.carSize.SMALL, ParkingLocations.parkingType.STREET));
-        selectedParkingLocations.add(new ParkingLocations("Meters on sixth street", 40.111200,
+        allParkingLocations.add(new ParkingLocations("Meters on sixth street", 40.111200,
                 -88.232050, ParkingLocations.carSize.LARGE, ParkingLocations.parkingType.STREET));
-        selectedParkingLocations.add(new ParkingLocations("Grainger Library", 40.110790, -88.229032,
+        allParkingLocations.add(new ParkingLocations("Grainger Library", 40.110790, -88.229032,
                 ParkingLocations.carSize.EXTRA_LARGE, ParkingLocations.parkingType.FREE));
+
+        selectedParkingLocations = (LinkedList) allParkingLocations.clone();
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
