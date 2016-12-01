@@ -1,18 +1,28 @@
 package edu.illinois.cs465.parkingpterodactyl;
 
+import com.google.android.gms.maps.model.LatLng;
+
 /**
  * Created by Pranavi on 11/15/16.
  */
 
 public class ParkingLocations {
-    private String nameOfLoc;
-    private double Latitude;
-    private double Longitude;
+    public enum carSize {SMALL, MEDIUM, LARGE, EXTRA_LARGE}
+    public enum parkingType {FREE, PAID, STREET, EVENT}
 
-    public ParkingLocations(String locationName, double LatitudeVal, double LongitudeVal) {
+    private String nameOfLoc;
+    private double latitude;
+    private double longitude;
+    private carSize maxSize;
+    private parkingType type;
+
+    public ParkingLocations(String locationName, double latitudeVal, double longitudeVal,
+                            carSize maxCarSize, parkingType spotType) {
         nameOfLoc = locationName;
-        Latitude = LatitudeVal;
-        Longitude = LongitudeVal;
+        latitude = latitudeVal;
+        longitude = longitudeVal;
+        maxSize = maxCarSize;
+        type = spotType;
     }
 
     public String getNameOfLoc() {
@@ -20,16 +30,44 @@ public class ParkingLocations {
     }
 
     public double getLatitude() {
-        return Latitude;
+        return latitude;
     }
 
     public double getLongitude() {
-        return Longitude;
+        return longitude;
     }
 
     public String getNameForGoogleMaps() {
-        String GoogleMapsAddress = "google.navigation:q=" + getLatitude() + "," + getLongitude();
-        return GoogleMapsAddress;
+        return "google.navigation:q=" + getLatitude() + "," + getLongitude();
+    }
+
+    public boolean spotBigEnough(carSize testSize) {
+        switch(testSize) {
+            case SMALL:
+                return true;
+            case MEDIUM:
+                if (maxSize != carSize.SMALL) {
+                    return true;
+                }
+                break;
+            case LARGE:
+                if (maxSize == carSize.LARGE || maxSize == carSize.EXTRA_LARGE) {
+                    return true;
+                }
+                break;
+            case EXTRA_LARGE:
+                if (maxSize == carSize.EXTRA_LARGE) {
+                    return true;
+                }
+                break;
+            default:
+                return false;
+        }
+        return false;
+    }
+
+    public LatLng getLatLng() {
+        return new LatLng(this.latitude, this.longitude);
     }
 
 }
