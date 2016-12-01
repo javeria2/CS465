@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 
 import java.util.LinkedList;
@@ -14,7 +15,7 @@ import java.util.LinkedList;
 
 public class FiltersFragment extends Fragment {
 
-    // TODO(Zach) - When this fragment is navigated away from the list of spots to display should be updated based on the filters
+    // TODO(Zach) - Add listeners for car size
 
     public FiltersFragment() {
         // Required empty constructor
@@ -53,6 +54,61 @@ public class FiltersFragment extends Fragment {
         }
     }
 
+    private void setCheckboxListeners() {
+        CheckBox freeBox = (CheckBox) getActivity().findViewById(R.id.free);
+        CheckBox paidBox = (CheckBox) getActivity().findViewById(R.id.paid);
+        CheckBox streetBox = (CheckBox) getActivity().findViewById(R.id.meter);
+        CheckBox eventBox = (CheckBox) getActivity().findViewById(R.id.special_event);
+
+        freeBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    if (!((MainActivity)getActivity()).allowedParkingTypes.contains(ParkingLocations.parkingType.FREE))
+                    ((MainActivity)getActivity()).allowedParkingTypes.add(ParkingLocations.parkingType.FREE);
+                } else {
+                    ((MainActivity) getActivity()).allowedParkingTypes.remove(ParkingLocations.parkingType.FREE);
+                }
+            }
+        });
+
+        paidBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    if (!((MainActivity)getActivity()).allowedParkingTypes.contains(ParkingLocations.parkingType.PAID))
+                        ((MainActivity)getActivity()).allowedParkingTypes.add(ParkingLocations.parkingType.PAID);
+                } else {
+                    ((MainActivity) getActivity()).allowedParkingTypes.remove(ParkingLocations.parkingType.PAID);
+                }
+            }
+        });
+
+        streetBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    if (!((MainActivity)getActivity()).allowedParkingTypes.contains(ParkingLocations.parkingType.STREET))
+                        ((MainActivity)getActivity()).allowedParkingTypes.add(ParkingLocations.parkingType.STREET);
+                } else {
+                    ((MainActivity) getActivity()).allowedParkingTypes.remove(ParkingLocations.parkingType.STREET);
+                }
+            }
+        });
+
+        eventBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    if (!((MainActivity)getActivity()).allowedParkingTypes.contains(ParkingLocations.parkingType.EVENT))
+                        ((MainActivity)getActivity()).allowedParkingTypes.add(ParkingLocations.parkingType.EVENT);
+                } else {
+                    ((MainActivity) getActivity()).allowedParkingTypes.remove(ParkingLocations.parkingType.EVENT);
+                }
+            }
+        });
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -64,6 +120,7 @@ public class FiltersFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         setFilterOptions();
+        setCheckboxListeners();
         ImageButton down_arrow = (ImageButton) getActivity().findViewById(R.id.down_arrow);
         down_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
