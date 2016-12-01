@@ -6,16 +6,51 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
+
+import java.util.LinkedList;
 
 
 public class FiltersFragment extends Fragment {
 
-    // TODO(Zach) - Assign the checkbox values (and eventually the car size selection) based off of the variables in the main activity
     // TODO(Zach) - When this fragment is navigated away from the list of spots to display should be updated based on the filters
 
     public FiltersFragment() {
         // Required empty constructor
+    }
+
+    // TODO(Zach) - set the car size too
+    private void setFilterOptions() {
+        LinkedList<ParkingLocations.parkingType> types = ((MainActivity)getActivity()).allowedParkingTypes;
+        CheckBox freeBox = (CheckBox) getActivity().findViewById(R.id.free);
+        CheckBox paidBox = (CheckBox) getActivity().findViewById(R.id.paid);
+        CheckBox streetBox = (CheckBox) getActivity().findViewById(R.id.meter);
+        CheckBox eventBox = (CheckBox) getActivity().findViewById(R.id.special_event);
+
+        if (types.contains(ParkingLocations.parkingType.FREE)) {
+            freeBox.setChecked(true);
+        } else {
+            freeBox.setChecked(false);
+        }
+
+        if (types.contains(ParkingLocations.parkingType.PAID)) {
+            paidBox.setChecked(true);
+        } else {
+            paidBox.setChecked(false);
+        }
+
+        if (types.contains(ParkingLocations.parkingType.STREET)) {
+            streetBox.setChecked(true);
+        } else {
+            streetBox.setChecked(false);
+        }
+
+        if (types.contains(ParkingLocations.parkingType.EVENT)) {
+            eventBox.setChecked(true);
+        } else {
+            eventBox.setChecked(false);
+        }
     }
 
     @Override
@@ -28,6 +63,7 @@ public class FiltersFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+        setFilterOptions();
         ImageButton down_arrow = (ImageButton) getActivity().findViewById(R.id.down_arrow);
         down_arrow.setOnClickListener(new View.OnClickListener() {
             @Override

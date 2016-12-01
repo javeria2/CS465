@@ -29,8 +29,6 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
     private static View view;
     private GoogleMap gmap;
 
-    // TODO(Zach) - Filter all locations and then show all of those
-
     public GMapFragment() {
         // Required empty constructor
     }
@@ -73,7 +71,8 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
 
         for (ParkingLocations loc : filterLocations(((MainActivity)getActivity()).allParkingLocations)) {
             MarkerOptions opts = new MarkerOptions().position(loc.getLatLng());
-            opts.snippet("Distance to Destination " + " mile(s)");
+            // TODO(Zach) - Replace 'x' with the actual distance
+            opts.snippet("Distance to Destination " + "x" + " mile(s)");
 
             switch(loc.getType()) {
                 case FREE:
