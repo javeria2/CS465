@@ -18,6 +18,7 @@ import java.util.LinkedList;
 
 
 public class FiltersFragment extends Fragment {
+    ParkingLocations.carSize carSize = ((MainActivity)getActivity()).currentCarSize;
 
     // TODO(Zach) - Add listeners for car size
 
@@ -33,7 +34,6 @@ public class FiltersFragment extends Fragment {
         CheckBox streetBox = (CheckBox) getActivity().findViewById(R.id.meter);
         CheckBox eventBox = (CheckBox) getActivity().findViewById(R.id.special_event);
 
-        ParkingLocations.carSize carSize = ((MainActivity)getActivity()).currentCarSize;
 
         if (types.contains(ParkingLocations.parkingType.FREE)) {
             freeBox.setChecked(true);
@@ -59,10 +59,10 @@ public class FiltersFragment extends Fragment {
             eventBox.setChecked(false);
         }
 
-        setCurrentCarSize(carSize);
+        setCurrentCarSize();
     }
 
-    private void setCurrentCarSize(ParkingLocations.carSize carSize) {
+    private void setCurrentCarSize() {
         //fetch all buttons for car sizes
         final Button hb = (Button)getActivity().findViewById(R.id.hb_bt);
         final Button sedan = (Button) getActivity().findViewById(R.id.sedan_bt);
@@ -196,6 +196,8 @@ public class FiltersFragment extends Fragment {
 
             @Override
             public void onClick(View arg0) {
+                carSize = ParkingLocations.carSize.SMALL;
+
                 hb.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 hb.setTextColor(Color.WHITE);
                 suv.setBackgroundColor(Color.TRANSPARENT);
@@ -215,6 +217,8 @@ public class FiltersFragment extends Fragment {
 
             @Override
             public void onClick(View arg0) {
+                carSize = ParkingLocations.carSize.MEDIUM;
+
                 sedan.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 sedan.setTextColor(Color.WHITE);
                 suv.setBackgroundColor(Color.TRANSPARENT);
@@ -234,6 +238,8 @@ public class FiltersFragment extends Fragment {
 
             @Override
             public void onClick(View arg0) {
+                carSize = ParkingLocations.carSize.LARGE;
+
                 suv.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 suv.setTextColor(Color.WHITE);
                 truck.setBackgroundColor(Color.TRANSPARENT);
@@ -253,6 +259,8 @@ public class FiltersFragment extends Fragment {
 
             @Override
             public void onClick(View arg0) {
+                carSize = ParkingLocations.carSize.EXTRA_LARGE;
+
                 truck.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 truck.setTextColor(Color.WHITE);
                 suv.setBackgroundColor(Color.TRANSPARENT);
