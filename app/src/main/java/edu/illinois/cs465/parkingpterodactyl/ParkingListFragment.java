@@ -66,30 +66,34 @@ public class ParkingListFragment extends Fragment {
         navigateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Uri gmmIntentUri = Uri.parse(((MainActivity) getActivity()).selectedParkingLocations.get(0).getNameForGoogleMaps());
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                mapIntent.setPackage("com.google.android.apps.maps");
-                startActivity(mapIntent);
+                if (((MainActivity) getActivity()).selectedParkingLocations.size() > 0) {
+                    Uri gmmIntentUri = Uri.parse(((MainActivity) getActivity()).selectedParkingLocations.get(0).getNameForGoogleMaps());
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                    mapIntent.setPackage("com.google.android.apps.maps");
+                    startActivity(mapIntent);
 
-                // Create occupied button
-                NotificationCompat.Builder mBuilder =
-                        new NotificationCompat.Builder(getActivity())
-                                .setSmallIcon(R.drawable.launcher_icon)
-                                .setContentTitle("Spot Occupied")
-                                .setContentText("Navigate to next spot.");
+                    // Create occupied button
+                    if (((MainActivity) getActivity()).selectedParkingLocations.size() > 1) {
+                        NotificationCompat.Builder mBuilder =
+                                new NotificationCompat.Builder(getActivity())
+                                        .setSmallIcon(R.drawable.launcher_icon)
+                                        .setContentTitle("Spot Occupied")
+                                        .setContentText("Navigate to next spot.");
 
-                Uri secondGmmIntentUri = Uri.parse(((MainActivity) getActivity()).selectedParkingLocations.get(1).getNameForGoogleMaps());
-                Intent secondMapIntent = new Intent(Intent.ACTION_VIEW, secondGmmIntentUri);
-                secondMapIntent.setPackage("com.google.android.apps.maps");
-                PendingIntent secondIntentPending = PendingIntent.getActivity(getActivity(),
-                        0, secondMapIntent,
-                        PendingIntent.FLAG_CANCEL_CURRENT);
+                        Uri secondGmmIntentUri = Uri.parse(((MainActivity) getActivity()).selectedParkingLocations.get(1).getNameForGoogleMaps());
+                        Intent secondMapIntent = new Intent(Intent.ACTION_VIEW, secondGmmIntentUri);
+                        secondMapIntent.setPackage("com.google.android.apps.maps");
+                        PendingIntent secondIntentPending = PendingIntent.getActivity(getActivity(),
+                                0, secondMapIntent,
+                                PendingIntent.FLAG_CANCEL_CURRENT);
 
-                mBuilder.setContentIntent(secondIntentPending);
+                        mBuilder.setContentIntent(secondIntentPending);
 
-                NotificationManager mNotificationManager =
-                        (NotificationManager) getActivity().getSystemService(getActivity().NOTIFICATION_SERVICE);
-                mNotificationManager.notify(notificationid, mBuilder.build());
+                        NotificationManager mNotificationManager =
+                                (NotificationManager) getActivity().getSystemService(getActivity().NOTIFICATION_SERVICE);
+                        mNotificationManager.notify(notificationid, mBuilder.build());
+                    }
+                }
             }
 
             /*ImageButton occupiedButton = getActivity().findViewById(R.id.occupied);
