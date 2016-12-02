@@ -12,197 +12,194 @@
     tools:context="edu.illinois.cs465.parkingpterodactyl.FiltersFragment">
 
     <TextView
-        android:id="@+id/line1"
-        android:text="-----------------------------------------------------------------------------"
+        android:id="@+id/location_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/location_name"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp"
+        android:text="Location"
         android:textColor="@android:color/black"
-        android:layout_alignParentEnd="true" />
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/location_name"
+        android:text="-----------------------------------------------------------------------------"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/parking_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/line1"
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp"
+        android:text="Type of Parking:"
+        android:textColor="@android:color/black"
+        android:textSize="18dp" />
+
+    <CheckBox
+        android:id="@+id/free"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/parking_type"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:text="Free"
+        android:textSize="16dp" />
+
+    <CheckBox
+        android:id="@+id/paid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/free"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:text="Paid"
+        android:textSize="16dp" />
 
     <CheckBox
         android:id="@+id/meter"
-        android:text="Meter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/paid"
-        android:textSize="17sp"
         android:layout_alignParentStart="true"
-        android:paddingBottom="5sp"
-        android:paddingTop="5sp"/>
-
-
-    <TextView
-        android:id="@+id/line2"
-        android:text="-----------------------------------------------------------------------------"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        android:layout_below="@+id/special_event"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/line3"
-        android:text="-----------------------------------------------------------------------------"
-        android:textColor="@android:color/black"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/max_distance_seek_bar"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/line4"
-        android:text="-----------------------------------------------------------------------------"
-        android:textColor="@android:color/black"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/duration_seek_bar"
-        android:layout_alignParentStart="true" />
-
+        android:layout_below="@+id/paid"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:text="Meter"
+        android:textSize="16dp" />
 
     <CheckBox
         android:id="@+id/special_event"
-        android:text="Special Event"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="17sp"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/meter"
-        android:layout_alignParentStart="true"
-        android:paddingBottom="5sp"
-        android:paddingTop="5sp"/>
-
-
-    <SeekBar
-        android:id="@+id/duration_seek_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="@android:integer/status_bar_notification_info_maxnum"
-        android:progress="200"
-        android:layout_below="@+id/duration"
-        android:layout_alignParentStart="true"
-        android:paddingBottom="8sp"
-        android:paddingTop="3sp"
-        android:thumbTint="@android:color/black"
-        android:progressTint="@android:color/black" />
-
-    <SeekBar
-        android:id="@+id/max_payment_seek_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="@android:integer/status_bar_notification_info_maxnum"
-        android:progress="200"
-        android:paddingBottom="8sp"
-        android:paddingTop="3sp"
-        android:layout_below="@+id/max_payment"
-        android:layout_alignParentStart="true"
-        android:thumbTint="@android:color/black"
-        android:progressTint="@android:color/black" />
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:text="Special Event"
+        android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/max_payment"
+        android:id="@+id/line2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Maximum Payment:"
-        android:textColor="@android:color/black"
-        android:textSize="19sp"
-        android:paddingBottom="5sp"
-        android:paddingTop="5sp"
-        android:layout_below="@+id/line4"
-        android:layout_alignParentStart="true" />
-
-    <SeekBar
-        android:id="@+id/max_distance_seek_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="@android:integer/status_bar_notification_info_maxnum"
-        android:progress="200"
-        android:paddingBottom="8sp"
-        android:paddingTop="3sp"
-        android:thumbTint="@android:color/black"
-        android:progressTint="@android:color/black"
-        android:layout_below="@+id/max_distance"
-        android:layout_alignParentStart="true" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        app:srcCompat="@drawable/down_arrow"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/down_arrow"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/location_name"
-        android:layout_alignTop="@+id/location_name" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/special_event"
+        android:text="-----------------------------------------------------------------------------"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/max_distance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        android:text="Maximum Walking Distance:"
-        android:textSize="19sp"
-        android:paddingBottom="5sp"
-        android:paddingTop="5sp"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/line2"
-        android:layout_alignParentStart="true" />
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp"
+        android:text="Maximum Walking Distance:"
+        android:textColor="@android:color/black"
+        android:textSize="18dp" />
+
+    <SeekBar
+        android:id="@+id/max_distance_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/max_distance"
+        android:max="@android:integer/status_bar_notification_info_maxnum"
+        android:paddingBottom="6dp"
+        android:paddingTop="3dp"
+        android:progress="200"
+        android:progressTint="@android:color/black"
+        android:thumbTint="@android:color/black" />
+
+    <TextView
+        android:id="@+id/line3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/max_distance_seek_bar"
+        android:text="-----------------------------------------------------------------------------"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/duration"
-        android:text="Duration of Stay:"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="19sp"
-        android:textColor="@android:color/black"
-        android:paddingBottom="5sp"
-        android:paddingTop="5sp"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/line3"
-        android:layout_alignParentStart="true" />
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp"
+        android:text="Duration of Stay:"
+        android:textColor="@android:color/black"
+        android:textSize="18dp" />
 
-    <TextView
-        android:id="@+id/location_name"
-        android:text="Location"
+    <SeekBar
+        android:id="@+id/duration_seek_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/duration"
+        android:max="@android:integer/status_bar_notification_info_maxnum"
+        android:paddingBottom="6dp"
+        android:paddingTop="3dp"
+        android:progress="200"
+        android:progressTint="@android:color/black"
+        android:thumbTint="@android:color/black" />
+
+    <TextView
+        android:id="@+id/line4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/duration_seek_bar"
+        android:text="-----------------------------------------------------------------------------"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/max_payment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/line4"
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp"
+        android:text="Maximum Payment:"
         android:textColor="@android:color/black"
-        android:paddingBottom="5sp"
-        android:paddingTop="5sp"
+        android:textSize="18dp" />
+
+    <SeekBar
+        android:id="@+id/max_payment_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/max_payment"
+        android:max="@android:integer/status_bar_notification_info_maxnum"
+        android:paddingBottom="6dp"
+        android:paddingTop="3dp"
+        android:progress="200"
+        android:progressTint="@android:color/black"
+        android:thumbTint="@android:color/black" />
+
+    <ImageButton
+        android:id="@+id/down_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/location_name"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/parking_type"
-        android:text="Type of Parking:"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="19sp"
-        android:textColor="@android:color/black"
-        android:paddingBottom="4sp"
-        android:paddingTop="4sp"
-        android:layout_below="@+id/line1"
-        android:layout_alignParentStart="true" />
-
-    <CheckBox
-        android:id="@+id/free"
-        android:text="Free"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="17sp"
-        android:paddingBottom="5sp"
-        android:paddingTop="5sp"
-        android:layout_below="@+id/parking_type"
-        android:layout_alignParentStart="true" />
-
-    <CheckBox
-        android:id="@+id/paid"
-        android:text="Paid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="17sp"
-        android:paddingBottom="5sp"
-        android:paddingTop="5sp"
-        android:layout_below="@+id/free"
-        android:layout_alignParentStart="true" />
+        android:layout_alignTop="@+id/location_name"
+        app:srcCompat="@drawable/down_arrow" />
 
 
 </RelativeLayout>

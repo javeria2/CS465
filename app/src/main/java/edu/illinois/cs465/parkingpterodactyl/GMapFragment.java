@@ -81,15 +81,15 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
                     opts.title("Free Parking");
                     break;
                 case PAID:
-                    opts.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                    opts.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE));
                     opts.title("Paid Parking");
                     break;
                 case STREET:
-                    opts.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                    opts.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
                     opts.title("Street Parking");
                     break;
                 case EVENT:
-                    opts.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                    opts.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW));
                     opts.title("Event Parking");
                     break;
             }
@@ -97,11 +97,16 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
             gmap.addMarker(opts);
         }
 
+        MarkerOptions current_loc = new MarkerOptions().position(new LatLng(40.110451, -88.229364));
+        current_loc.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        gmap.addMarker(current_loc);
+
+
         //addCustomMarkers(R.drawable.pin3, 40.109700, -88.230400);
 
-        LatLng zoomlatlng = new LatLng(40.110000, -88.230550);
+        LatLng zoomlatlng = new LatLng(40.110451, -88.229364);
 
-        gmap.moveCamera(CameraUpdateFactory.newLatLngZoom(zoomlatlng, 17));
+        gmap.moveCamera(CameraUpdateFactory.newLatLngZoom(zoomlatlng, 16));
         if (ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions

@@ -87,12 +87,15 @@ public class MainActivity extends AppCompatActivity {
         //create linked list for parking locations
         allParkingLocations = new LinkedList<>();
         //fake parking locations
-        allParkingLocations.add(new ParkingLocations("The Union", 40.109400, -88.230400,
+        allParkingLocations.add(new ParkingLocations("The Union", 40.110221, -88.226247,
                 ParkingLocations.carSize.SMALL, ParkingLocations.parkingType.STREET));
-        allParkingLocations.add(new ParkingLocations("Meters on sixth street", 40.111200,
-                -88.232050, ParkingLocations.carSize.LARGE, ParkingLocations.parkingType.STREET));
-        allParkingLocations.add(new ParkingLocations("Grainger Library", 40.110790, -88.229032,
+        allParkingLocations.add(new ParkingLocations("Meters on Wright St", 40.1113254,
+                -88.228872, ParkingLocations.carSize.LARGE, ParkingLocations.parkingType.STREET));
+        allParkingLocations.add(new ParkingLocations("Lot by Walgreens", 40.110056, -88.232529,
                 ParkingLocations.carSize.EXTRA_LARGE, ParkingLocations.parkingType.FREE));
+        allParkingLocations.add(new ParkingLocations("Grainger Library", 40.112565, -88.226900,
+                ParkingLocations.carSize.LARGE, ParkingLocations.parkingType.FREE));
+
 
         selectedParkingLocations = (LinkedList) allParkingLocations.clone();
 
