@@ -27,11 +27,13 @@ public class FiltersFragment extends Fragment {
 
     // TODO(Zach) - set the car size too
     private void setFilterOptions() {
+
         LinkedList<ParkingLocations.parkingType> types = ((MainActivity)getActivity()).allowedParkingTypes;
         CheckBox freeBox = (CheckBox) getActivity().findViewById(R.id.free);
         CheckBox paidBox = (CheckBox) getActivity().findViewById(R.id.paid);
         CheckBox streetBox = (CheckBox) getActivity().findViewById(R.id.meter);
         CheckBox eventBox = (CheckBox) getActivity().findViewById(R.id.special_event);
+
 
         if (types.contains(ParkingLocations.parkingType.FREE)) {
             freeBox.setChecked(true);
@@ -55,6 +57,42 @@ public class FiltersFragment extends Fragment {
             eventBox.setChecked(true);
         } else {
             eventBox.setChecked(false);
+        }
+
+        setCurrentCarSize();
+    }
+
+    private void setCurrentCarSize() {
+        ParkingLocations.carSize carSize = ((MainActivity)getActivity()).currentCarSize;
+
+        //fetch all buttons for car sizes
+        final Button hb = (Button)getActivity().findViewById(R.id.hb_bt);
+        final Button sedan = (Button) getActivity().findViewById(R.id.sedan_bt);
+        final Button suv = (Button) getActivity().findViewById(R.id.suv_bt);
+        final Button truck = (Button) getActivity().findViewById(R.id.truck_bt);
+
+        //fetch the img buttons
+        final ImageView hb_img = (ImageView) getActivity().findViewById(R.id.imageView1);
+        final ImageView sedan_img = (ImageView) getActivity().findViewById(R.id.imageView2);
+        final ImageView suv_img = (ImageView) getActivity().findViewById(R.id.imageView3);
+        final ImageView truck_img = (ImageView) getActivity().findViewById(R.id.imageView4);
+
+        if(carSize == ParkingLocations.carSize.SMALL){
+            hb.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            hb.setTextColor(Color.WHITE);
+            hb_img.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        } else if(carSize == ParkingLocations.carSize.MEDIUM) {
+            sedan.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            sedan.setTextColor(Color.WHITE);
+            sedan_img.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        } else if(carSize == ParkingLocations.carSize.LARGE){
+            suv.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            suv.setTextColor(Color.WHITE);
+            suv_img.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        } else if (carSize == ParkingLocations.carSize.EXTRA_LARGE) {
+            truck.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            truck.setTextColor(Color.WHITE);
+            truck_img.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         }
     }
 
@@ -123,6 +161,8 @@ public class FiltersFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+        ParkingLocations.carSize carSize = ((MainActivity)getActivity()).currentCarSize;
+
         setFilterOptions();
         setCheckboxListeners();
         setButtonBackground();
@@ -142,6 +182,7 @@ public class FiltersFragment extends Fragment {
     }
 
     private void setButtonBackground() {
+
         //fetch all buttons for car sizes
         final Button hb = (Button)getActivity().findViewById(R.id.hb_bt);
         final Button sedan = (Button) getActivity().findViewById(R.id.sedan_bt);
@@ -160,6 +201,8 @@ public class FiltersFragment extends Fragment {
 
             @Override
             public void onClick(View arg0) {
+                ((MainActivity)getActivity()).currentCarSize = ParkingLocations.carSize.SMALL;
+
                 hb.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 hb.setTextColor(Color.WHITE);
                 suv.setBackgroundColor(Color.TRANSPARENT);
@@ -179,6 +222,9 @@ public class FiltersFragment extends Fragment {
 
             @Override
             public void onClick(View arg0) {
+                ((MainActivity)getActivity()).currentCarSize = ParkingLocations.carSize.MEDIUM;
+
+
                 sedan.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 sedan.setTextColor(Color.WHITE);
                 suv.setBackgroundColor(Color.TRANSPARENT);
@@ -198,6 +244,8 @@ public class FiltersFragment extends Fragment {
 
             @Override
             public void onClick(View arg0) {
+                ((MainActivity)getActivity()).currentCarSize = ParkingLocations.carSize.LARGE;
+
                 suv.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 suv.setTextColor(Color.WHITE);
                 truck.setBackgroundColor(Color.TRANSPARENT);
@@ -217,6 +265,9 @@ public class FiltersFragment extends Fragment {
 
             @Override
             public void onClick(View arg0) {
+                ((MainActivity)getActivity()).currentCarSize = ParkingLocations.carSize.EXTRA_LARGE;
+
+
                 truck.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 truck.setTextColor(Color.WHITE);
                 suv.setBackgroundColor(Color.TRANSPARENT);
