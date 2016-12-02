@@ -174,7 +174,6 @@ public class FiltersFragment extends Fragment {
             public void onClick(View view) {
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.main_container,  new GMapFragment());
-                transaction.addToBackStack(null);
                 transaction.commit();
             }
         });
