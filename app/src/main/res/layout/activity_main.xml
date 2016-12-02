@@ -54,20 +54,7 @@
 
         </android.support.v4.widget.DrawerLayout>
     </RelativeLayout>
-    <!--Below is the transparent layout positioned at startup -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#88666666"
-        android:id="@+id/top_layout">
 
-        <ImageView
-            android:id="@+id/ivInstruction"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clickable="false"
-            android:src="@drawable/mainpageoverlay" />
-    </RelativeLayout>
 
 </FrameLayout>
 

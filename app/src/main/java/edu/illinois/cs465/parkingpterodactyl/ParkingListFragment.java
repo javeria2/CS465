@@ -12,8 +12,10 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 
 public class ParkingListFragment extends Fragment {
@@ -47,6 +49,23 @@ public class ParkingListFragment extends Fragment {
 
         ImageButton navigateButton = (ImageButton) getActivity().findViewById(R.id.navigate);
         //Help Overlay Code
+
+        Button navigationOverlayDoneButton = (Button) getActivity().findViewById(R.id.navigationOverlayDone);
+        navigationOverlayDoneButton.setVisibility(View.VISIBLE);
+        navigationOverlayDoneButton.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                RelativeLayout listOverlay = (RelativeLayout) getActivity().findViewById(R.id.list_help_layout);
+                listOverlay.setVisibility(View.INVISIBLE);
+                return false;
+            }
+
+        });
+
+
+        /*
         final View topLevelLayout = getActivity().findViewById(R.id.overlayparkinglocations);
         if (!((MainActivity)getActivity()).parkingSeen) {
             topLevelLayout.setVisibility(View.VISIBLE);
@@ -62,7 +81,9 @@ public class ParkingListFragment extends Fragment {
                 return false;
             }
 
-        });
+        });*/
+
+
         navigateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,6 +140,7 @@ public class ParkingListFragment extends Fragment {
                 //Occupied
                 //Navigate them back to the map
             }*/
+
 
         });
 

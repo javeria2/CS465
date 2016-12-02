@@ -16,7 +16,6 @@
             android:id="@+id/parking_list_items"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
         </ListView>
 
         <ImageButton
@@ -35,24 +34,61 @@
 
     </RelativeLayout>
 
-    <!--Below is the transparent layout positioned at startup -->
     <RelativeLayout
+        android:id="@+id/list_help_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#88666666"
-        android:id="@+id/overlayparkinglocations"
-        android:layout_marginStart="0px"
-        android:layout_marginEnd="0px">
+        android:background="#50666666">
+
+        <TextView
+            android:id="@+id/navigationHelp"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="290dp"
+
+            android:fontFamily="casual"
+            android:text="Press this button to navigate to the next parking spot! \n\n If the spot is already occupied, press occupied to navigate to your next choice"
+            android:textColor="#000000"
+            android:textSize="15dp"
+
+            android:textStyle="bold"
+
+            />
 
         <ImageView
-            android:id="@+id/ivInstruction_messageoverlay"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="0px"
-            android:layout_marginEnd="0px"
-            android:clickable="false"
+            android:id="@+id/navigationHelpArrow"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
 
-            android:src="@drawable/parking_locations_overlay" />
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="90dp"
+            android:layout_marginLeft="170dp"
+            android:layout_marginRight="30dp"
+
+            android:layout_marginTop="325dp"
+            android:scaleY="-1"
+
+            android:src="@drawable/overlay_arrow"
+
+            />
+
+        <Button
+            android:id="@+id/navigationOverlayDone"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+
+            android:background="@color/colorPrimaryDark"
+            android:fontFamily="monospace"
+            android:text="Got it!"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
     </RelativeLayout>
 
 </FrameLayout>

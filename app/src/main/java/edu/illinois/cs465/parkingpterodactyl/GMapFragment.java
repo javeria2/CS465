@@ -143,6 +143,17 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
         MapFragment fragment = (MapFragment)getActivity().getFragmentManager().findFragmentById(R.id.map);
         fragment.getMapAsync(this);
 
+        Button filter = (Button) getActivity().findViewById(R.id.filter);
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_container, new FiltersFragment());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
         ImageButton up_arrow = (ImageButton) getActivity().findViewById(R.id.up_arrow);
         up_arrow.setOnClickListener(new View.OnClickListener() {
             @Override

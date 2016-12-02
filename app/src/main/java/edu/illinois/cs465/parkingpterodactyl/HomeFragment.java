@@ -6,11 +6,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 
 
 /**
@@ -58,6 +61,24 @@ public class HomeFragment extends Fragment {
                 transaction.commit();
             }
         });
+
+        Button homeOverlayDoneButton = (Button) getActivity().findViewById(R.id.homeOverlayDone);
+        homeOverlayDoneButton.setVisibility(View.VISIBLE);
+        homeOverlayDoneButton.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                RelativeLayout homeOverlay = (RelativeLayout) getActivity().findViewById(R.id.top_layout);
+
+                homeOverlay.setVisibility(View.INVISIBLE);
+                return false;
+            }
+
+        });
+
+
     }
+
 
 }
