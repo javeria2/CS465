@@ -168,22 +168,4 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
         TextView locationName = (TextView)getActivity().findViewById(R.id.location_name);
         locationName.setText(((MainActivity)getActivity()).lastSearch);
     }
-
-    //this function adds a new marker on the map
-    public void addCustomMarkers(int resource, double lat, double lon) {
-        LatLng pin = new LatLng(lat,lon);
-        gmap.addMarker(new MarkerOptions()
-                .position(pin)
-                /*.title("Marker in sydney")*/
-                .icon(BitmapDescriptorFactory.fromResource(resource)));
-    }
-
-    //this function adds a new circle
-    public void addCustomCircle(LatLng pin, int color1, int color2) {
-        gmap.addCircle(new CircleOptions()
-                .center(pin)
-                .radius(10)
-                .strokeColor(color1)
-                .fillColor(color2));
-    }
  }
