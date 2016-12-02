@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 ParkingLocations.carSize.LARGE, ParkingLocations.parkingType.FREE));
 
 
-        selectedParkingLocations = (LinkedList) allParkingLocations.clone();
+        selectedParkingLocations = new LinkedList<>();
 
         // Set the default car size and desired parking types
         this.currentCarSize = ParkingLocations.carSize.LARGE;

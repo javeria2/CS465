@@ -21,11 +21,12 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.LinkedList;
 
-public class GMapFragment extends Fragment implements OnMapReadyCallback {
+public class GMapFragment extends Fragment implements GoogleMap.OnInfoWindowClickListener, OnMapReadyCallback {
     private static View view;
     private GoogleMap gmap;
 
@@ -69,6 +70,7 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         gmap = googleMap;
         gmap.clear();
+        gmap.setOnInfoWindowClickListener(this);
 
         for (ParkingLocations loc : filterLocations(((MainActivity)getActivity()).allParkingLocations)) {
             MarkerOptions opts = new MarkerOptions().position(loc.getLatLng());
@@ -94,7 +96,8 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
                     break;
             }
 
-            gmap.addMarker(opts);
+            Marker newMarker = gmap.addMarker(opts);
+            newMarker.setTag(loc);
         }
 
         MarkerOptions current_loc = new MarkerOptions().position(new LatLng(40.110451, -88.229364));
@@ -119,6 +122,14 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
         }
         gmap.setMyLocationEnabled(true);
 
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        ParkingLocations loc = (ParkingLocations) marker.getTag();
+        if (!((MainActivity)getActivity()).selectedParkingLocations.contains(loc)) {
+            ((MainActivity)getActivity()).selectedParkingLocations.add(loc);
+        }
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
