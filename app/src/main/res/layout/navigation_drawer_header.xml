@@ -3,38 +3,39 @@
     android:layout_width="match_parent" android:layout_height="160dp"
     android:background="@drawable/header_bg"
     >
-
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:id="@+id/img"
         android:src="@drawable/avatar"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
-        />
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="jon.snow@gmail.com"
+        android:textColor="@color/gray"
+        android:textSize="15dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/email"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:paddingBottom="10dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Jon Snow"
         android:textColor="@color/gray"
-        android:layout_toRightOf="@+id/img"
         android:textSize="30dp"
         android:textStyle="bold"
-        android:layout_marginTop="50dp"
         android:layout_marginLeft="20dp"
         android:id="@+id/name"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="jon.snow@gmail.com"
-        android:textColor="@color/gray"
-        android:layout_below="@+id/name"
-        android:layout_toRightOf="@+id/img"
-        android:textSize="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:id="@+id/email"
-        />
+        android:layout_below="@+id/img"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp" />
+
+
 </RelativeLayout>
