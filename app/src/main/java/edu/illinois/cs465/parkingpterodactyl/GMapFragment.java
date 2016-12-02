@@ -19,13 +19,13 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.LinkedList;
 
-public class GMapFragment extends Fragment implements OnMapReadyCallback {
+public class GMapFragment extends Fragment implements GoogleMap.OnInfoWindowClickListener, OnMapReadyCallback {
     private static View view;
     private GoogleMap gmap;
 
@@ -69,6 +69,7 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         gmap = googleMap;
         gmap.clear();
+        gmap.setOnInfoWindowClickListener(this);
 
         for (ParkingLocations loc : filterLocations(((MainActivity)getActivity()).allParkingLocations)) {
             MarkerOptions opts = new MarkerOptions().position(loc.getLatLng());
@@ -94,7 +95,8 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
                     break;
             }
 
-            gmap.addMarker(opts);
+            Marker newMarker = gmap.addMarker(opts);
+            newMarker.setTag(loc);
         }
 
         MarkerOptions current_loc = new MarkerOptions().position(new LatLng(40.110451, -88.229364));
@@ -119,6 +121,14 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
         }
         gmap.setMyLocationEnabled(true);
 
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        ParkingLocations loc = (ParkingLocations) marker.getTag();
+        if (!((MainActivity)getActivity()).selectedParkingLocations.contains(loc)) {
+            ((MainActivity)getActivity()).selectedParkingLocations.add(loc);
+        }
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -160,7 +170,16 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
             public void onClick(View view) {
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.main_container,  new FiltersFragment());
-                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        Button filterButton = (Button) getActivity().findViewById(R.id.filter);
+        filterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_container,  new FiltersFragment());
                 transaction.commit();
             }
         });
@@ -178,23 +197,5 @@ public class GMapFragment extends Fragment implements OnMapReadyCallback {
 
         TextView locationName = (TextView)getActivity().findViewById(R.id.location_name);
         locationName.setText(((MainActivity)getActivity()).lastSearch);
-    }
-
-    //this function adds a new marker on the map
-    public void addCustomMarkers(int resource, double lat, double lon) {
-        LatLng pin = new LatLng(lat,lon);
-        gmap.addMarker(new MarkerOptions()
-                .position(pin)
-                /*.title("Marker in sydney")*/
-                .icon(BitmapDescriptorFactory.fromResource(resource)));
-    }
-
-    //this function adds a new circle
-    public void addCustomCircle(LatLng pin, int color1, int color2) {
-        gmap.addCircle(new CircleOptions()
-                .center(pin)
-                .radius(10)
-                .strokeColor(color1)
-                .fillColor(color2));
     }
  }
