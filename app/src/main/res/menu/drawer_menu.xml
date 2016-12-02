@@ -8,25 +8,6 @@
             android:title="Home"></item>
 
         <item
-            android:title="Select Car Size"
-            >
-            <menu>
-                <item
-                    android:title="Hatchback"
-                    app:actionLayout="@layout/hatchback_button" />
-                <item
-                    android:title="Sedan"
-                    app:actionLayout="@layout/sedan_button" />
-                <item
-                    android:title="SUV"
-                    app:actionLayout="@layout/suv_button" />
-                <item
-                    android:title="Truck"
-                    app:actionLayout="@layout/truck_button" />
-            </menu>
-        </item>
-
-        <item
         android:id="@+id/messages_id"
         android:title="Message Board">
         </item>
