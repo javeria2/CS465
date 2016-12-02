@@ -4,40 +4,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.illinois.cs465.parkingpterodactyl.HomeFragment">
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_margin="20dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-        <EditText
-            android:id="@+id/search_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:hint="Where are you going?" />
-
-        <ImageButton
-            android:id="@+id/main_search_button"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:src="@drawable/ic_action_action_search"
-            />
+            android:layout_marginTop="50dp"
+            app:srcCompat="@drawable/launcher_icon"
+            android:id="@+id/imageView" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_margin="20dp">
+
+            <EditText
+                android:id="@+id/search_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:hint="Where are you going?" />
+
+            <ImageButton
+                android:id="@+id/main_search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:src="@drawable/ic_action_action_search"
+                />
+        </LinearLayout>
+
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="40dp"
-        app:srcCompat="@drawable/launcher_icon"
-        android:id="@+id/imageView" />
+
+
 
 </FrameLayout>
