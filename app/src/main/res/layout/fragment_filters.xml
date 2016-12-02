@@ -12,7 +12,7 @@
     tools:context="edu.illinois.cs465.parkingpterodactyl.FiltersFragment">
 
     <TextView
-        android:id="@+id/location_name"
+        android:id="@+id/location_name_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/location_name"
+        android:layout_below="@+id/location_name_1"
         android:text="-----------------------------------------------------------------------------"
         android:textColor="@android:color/black" />
 

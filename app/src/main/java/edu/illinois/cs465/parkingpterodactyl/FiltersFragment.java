@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.util.LinkedList;
 
@@ -122,6 +123,8 @@ public class FiltersFragment extends Fragment {
         setFilterOptions();
         setCheckboxListeners();
         ImageButton down_arrow = (ImageButton) getActivity().findViewById(R.id.down_arrow);
+        TextView locationName = (TextView)getActivity().findViewById(R.id.location_name_1);
+        locationName.setText(((MainActivity)getActivity()).lastSearch);
         down_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
