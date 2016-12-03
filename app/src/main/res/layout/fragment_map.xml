@@ -70,22 +70,78 @@
     </FrameLayout>
     <!--Below is the transparent layout positioned at startup -->
     <RelativeLayout
-        android:id="@+id/overlaymapfragment"
+        android:id="@+id/map_help_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginEnd="0px"
-        android:layout_marginStart="0px"
-        android:background="#88666666">
+        android:background="#50666666">
+
+        <TextView
+            android:id="@+id/filterHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="70dp"
+            android:layout_marginBottom="100dp"
+            android:padding="10dp"
+            android:background="@color/colorPrimaryDark"
+
+            android:fontFamily="casual"
+            android:text="Tap here to filter \nbased on your \npreferences"
+            android:textColor="#000000"
+            android:textSize="20dp"
+
+            android:textStyle="bold"
+
+            />
 
         <ImageView
-            android:id="@+id/ivInstruction_messageoverlay"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="0px"
-            android:layout_marginStart="0px"
-            android:clickable="false"
+            android:id="@+id/filterHelpArrow"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="100dp"
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/overlay_arrow"
+            android:scaleY="-1"
 
-            android:src="@drawable/map_overlay" />
+            />
+
+        <TextView
+            android:id="@+id/PinHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="65dp"
+            android:padding="10dp"
+            android:layout_marginTop="100dp"
+            android:background="@color/colorPrimaryDark"
+
+            android:fontFamily="casual"
+            android:text="Click on a pin to learn\nmore about the spot"
+            android:textColor="#000000"
+            android:textSize="20dp"
+
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/mapOverlayDone"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+
+            android:background="@color/colorPrimaryDark"
+            android:fontFamily="monospace"
+            android:text="Got it!"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
     </RelativeLayout>
 
 </FrameLayout>

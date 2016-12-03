@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -134,22 +135,20 @@ public class GMapFragment extends Fragment implements GoogleMap.OnInfoWindowClic
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //Help Overlay Code
-        final View topLevelLayout = getActivity().findViewById(R.id.overlaymapfragment);
-        if (!((MainActivity)getActivity()).mapOverlaySeen) {
-            topLevelLayout.setVisibility(View.VISIBLE);
-            ((MainActivity)getActivity()).mapOverlaySeen = true;
-        } else {
-            topLevelLayout.setVisibility(View.INVISIBLE);
-        }
-        topLevelLayout.setOnTouchListener(new View.OnTouchListener(){
+        Button mapOverlayDoneButton = (Button) getActivity().findViewById(R.id.mapOverlayDone);
+        mapOverlayDoneButton.setVisibility(View.VISIBLE);
+        mapOverlayDoneButton.setOnTouchListener(new View.OnTouchListener() {
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                topLevelLayout.setVisibility(View.INVISIBLE);
+
+                RelativeLayout homeOverlay = (RelativeLayout) getActivity().findViewById(R.id.map_help_layout);
+                homeOverlay.setVisibility(View.INVISIBLE);
                 return false;
             }
 
         });
+
         MapFragment fragment = (MapFragment)getActivity().getFragmentManager().findFragmentById(R.id.map);
         fragment.getMapAsync(this);
 
