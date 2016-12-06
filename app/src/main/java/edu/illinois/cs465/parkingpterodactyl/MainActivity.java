@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO - Come up with a cleaner way to do this.
     // Variables keeping track of whether or not the overlays have been seen
-    Boolean messageBoardOverlaySeen;
     Boolean parkingSeen;
     Boolean mapOverlaySeen;
+    Boolean homeOverlaySeen;
 
     // TODO - this really shouldn't be done this way either...
     String lastSearch;
@@ -45,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        messageBoardOverlaySeen = false;
         parkingSeen=false;
         mapOverlaySeen=false;
-        lastSearch = "Zach";
+        homeOverlaySeen=false;
+        lastSearch = "Home";
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

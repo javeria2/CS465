@@ -144,6 +144,7 @@ public class GMapFragment extends Fragment implements GoogleMap.OnInfoWindowClic
 
                 RelativeLayout homeOverlay = (RelativeLayout) getActivity().findViewById(R.id.map_help_layout);
                 homeOverlay.setVisibility(View.INVISIBLE);
+                ((MainActivity)getActivity()).mapOverlaySeen = true;
                 return false;
             }
 
@@ -196,5 +197,10 @@ public class GMapFragment extends Fragment implements GoogleMap.OnInfoWindowClic
 
         TextView locationName = (TextView)getActivity().findViewById(R.id.location_name);
         locationName.setText(((MainActivity)getActivity()).lastSearch);
+
+        if (((MainActivity)getActivity()).mapOverlaySeen) {
+            RelativeLayout homeOverlay = (RelativeLayout) getActivity().findViewById(R.id.map_help_layout);
+            homeOverlay.setVisibility(View.INVISIBLE);
+        }
     }
  }

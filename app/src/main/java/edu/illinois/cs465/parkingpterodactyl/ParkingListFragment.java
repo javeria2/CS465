@@ -59,6 +59,7 @@ public class ParkingListFragment extends Fragment {
 
                 RelativeLayout listOverlay = (RelativeLayout) getActivity().findViewById(R.id.list_help_layout);
                 listOverlay.setVisibility(View.INVISIBLE);
+                ((MainActivity)getActivity()).parkingSeen = true;
                 return false;
             }
 
@@ -143,6 +144,11 @@ public class ParkingListFragment extends Fragment {
 
 
         });
+
+        if (((MainActivity)getActivity()).parkingSeen) {
+            RelativeLayout homeOverlay = (RelativeLayout) getActivity().findViewById(R.id.list_help_layout);
+            homeOverlay.setVisibility(View.INVISIBLE);
+        }
 
 
     }

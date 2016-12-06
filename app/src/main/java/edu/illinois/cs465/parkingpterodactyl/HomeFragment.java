@@ -72,10 +72,16 @@ public class HomeFragment extends Fragment {
                 RelativeLayout homeOverlay = (RelativeLayout) getActivity().findViewById(R.id.top_layout);
 
                 homeOverlay.setVisibility(View.INVISIBLE);
+                ((MainActivity)getActivity()).homeOverlaySeen = true;
                 return false;
             }
 
         });
+
+        if (((MainActivity)getActivity()).homeOverlaySeen) {
+            RelativeLayout homeOverlay = (RelativeLayout) getActivity().findViewById(R.id.top_layout);
+            homeOverlay.setVisibility(View.INVISIBLE);
+        }
 
 
     }
