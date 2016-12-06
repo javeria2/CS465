@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/special_event"
-            android:text="-----------------------------------------------------------------------------"
+            android:text="------------------------------------------------------------------------------"
             android:textColor="@android:color/black" />
 
         <TextView
@@ -116,25 +116,23 @@
             android:textSize="18dp" />
 
         <SeekBar
-            android:id="@+id/max_distance_seek_bar"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/max_distance"
-            android:max="@android:integer/status_bar_notification_info_maxnum"
-            android:paddingBottom="6dp"
+            android:max="4"
+            android:progress="1"
+            android:id="@+id/max_distance_seek_bar"
             android:paddingTop="3dp"
-            android:progress="200"
-            android:progressTint="@android:color/black"
-            android:thumbTint="@android:color/black" />
+            android:layout_below="@+id/max_distance"
+            android:layout_alignParentEnd="true"/>
 
         <TextView
             android:id="@+id/line3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/max_distance_seek_bar"
-            android:text="-----------------------------------------------------------------------------"
+            android:layout_below="@+id/max_distance_values"
+            android:text="------------------------------------------------------------------------------"
             android:textColor="@android:color/black" />
 
         <TextView
@@ -148,27 +146,24 @@
             android:text="Duration of Stay:"
             android:textColor="@android:color/black"
             android:textSize="18dp" />
-
         <SeekBar
-            android:id="@+id/duration_seek_bar"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/duration"
-            android:max="@android:integer/status_bar_notification_info_maxnum"
-            android:paddingBottom="6dp"
+            android:max="4"
+            android:progress="1"
+            android:id="@+id/duration_seek_bar"
             android:paddingTop="3dp"
-            android:progress="200"
-            android:progressTint="@android:color/black"
-            android:thumbTint="@android:color/black" />
+            android:layout_below="@+id/duration"
+            android:layout_alignParentEnd="true" />
 
         <TextView
             android:id="@+id/line4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/duration_seek_bar"
-            android:text="-----------------------------------------------------------------------------"
+            android:layout_below="@+id/max_duration_values"
+            android:text="------------------------------------------------------------------------------"
             android:textColor="@android:color/black" />
 
         <TextView
@@ -184,17 +179,198 @@
             android:textSize="18dp" />
 
         <SeekBar
-            android:id="@+id/max_payment_seek_bar"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/max_payment"
-            android:max="@android:integer/status_bar_notification_info_maxnum"
-            android:paddingBottom="6dp"
+            android:max="4"
+            android:progress="1"
+            android:id="@+id/max_payment_seek_bar"
             android:paddingTop="3dp"
-            android:progress="200"
-            android:progressTint="@android:color/black"
-            android:thumbTint="@android:color/black" />
+            android:layout_below="@+id/max_payment"
+            android:layout_alignParentEnd="true" />
+
+        <LinearLayout
+            android:id="@+id/max_distance_values"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/max_distance_seek_bar"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:id="@+id/mi_0"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:layout_marginStart="12dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/mi_0.5"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="0.5"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/mi_1.0"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="1.0"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/mi_1.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="1.5"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/mi_2.0"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="2.0"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                android:layout_marginEnd="-50dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/max_payment_values"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/max_payment_seek_bar"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:id="@+id/$0"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:layout_marginStart="12dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/$5"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="5"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/$10"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="10"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/$15"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="15"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/$20"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="20"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                android:layout_marginEnd="-52dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/max_duration_values"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/duration_seek_bar"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:id="@+id/hour1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:layout_marginStart="12dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/hour2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="6"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/hour3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="12"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/hour4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="18"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/hour5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="24"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                android:layout_marginEnd="-53dp"/>
+        </LinearLayout>
 
         <ImageButton
             android:id="@+id/down_arrow"
@@ -206,14 +382,12 @@
             android:layout_alignTop="@+id/location_name"
             app:srcCompat="@drawable/down_arrow" />
 
-
-
         <TextView
             android:id="@+id/line5"
-            android:text="-----------------------------------------------------------------------------"
+            android:text="------------------------------------------------------------------------------"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/max_payment_seek_bar"
+            android:layout_below="@+id/max_payment_values"
             android:layout_alignParentStart="true"
             android:textColor="@android:color/black"
             android:layout_alignParentEnd="true" />
