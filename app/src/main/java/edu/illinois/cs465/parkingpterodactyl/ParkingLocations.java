@@ -3,7 +3,7 @@ package edu.illinois.cs465.parkingpterodactyl;
 import com.google.android.gms.maps.model.LatLng;
 
 /**
- * Created by Pranavi on 11/15/16.
+ * Class to represent parking locations
  */
 
 public class ParkingLocations {
@@ -43,6 +43,7 @@ public class ParkingLocations {
         return "google.navigation:q=" + getLatitude() + "," + getLongitude();
     }
 
+    // Determins if the spot is big enough to hold a car of the given size
     public boolean spotBigEnough(carSize testSize) {
         switch(testSize) {
             case SMALL:

@@ -34,6 +34,8 @@ public class GMapFragment extends Fragment implements GoogleMap.OnInfoWindowClic
         // Required empty constructor
     }
 
+    // Filter the list of parking locations based on the stored filter parameters. Returns the
+    // list of the parking spots meeting the filter criteria.
     private LinkedList<ParkingLocations> filterLocations(LinkedList<ParkingLocations> allLocations) {
         ParkingLocations.carSize size = ((MainActivity)getActivity()).currentCarSize;
         LinkedList<ParkingLocations.parkingType> types = ((MainActivity)getActivity()).allowedParkingTypes;
@@ -72,6 +74,7 @@ public class GMapFragment extends Fragment implements GoogleMap.OnInfoWindowClic
         gmap.clear();
         gmap.setOnInfoWindowClickListener(this);
 
+        // Add all of the parking locations that meet the filter criteria.
         for (ParkingLocations loc : filterLocations(((MainActivity)getActivity()).allParkingLocations)) {
             MarkerOptions opts = new MarkerOptions().position(loc.getLatLng());
             // TODO(Zach) - Replace 'x' with the actual distance
@@ -100,13 +103,12 @@ public class GMapFragment extends Fragment implements GoogleMap.OnInfoWindowClic
             newMarker.setTag(loc);
         }
 
+        // Add a red marker for the location that was searched for
         MarkerOptions current_loc = new MarkerOptions().position(new LatLng(40.110451, -88.229364));
         current_loc.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
         gmap.addMarker(current_loc);
 
-
-        //addCustomMarkers(R.drawable.pin3, 40.109700, -88.230400);
-
+        // Center the map on the red pin
         LatLng zoomlatlng = new LatLng(40.110451, -88.229364);
 
         gmap.moveCamera(CameraUpdateFactory.newLatLngZoom(zoomlatlng, 16));
@@ -124,6 +126,8 @@ public class GMapFragment extends Fragment implements GoogleMap.OnInfoWindowClic
 
     }
 
+    // Overwrite the functionality of the onclick listener for the info windows for the pins so that
+    // the parking location is added to the list of selected locations
     @Override
     public void onInfoWindowClick(Marker marker) {
         ParkingLocations loc = (ParkingLocations) marker.getTag();
@@ -134,7 +138,7 @@ public class GMapFragment extends Fragment implements GoogleMap.OnInfoWindowClic
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //Help Overlay Code
+        // Button listener for dismissing overlay
         Button mapOverlayDoneButton = (Button) getActivity().findViewById(R.id.mapOverlayDone);
         mapOverlayDoneButton.setVisibility(View.VISIBLE);
         mapOverlayDoneButton.setOnTouchListener(new View.OnTouchListener() {
@@ -153,17 +157,7 @@ public class GMapFragment extends Fragment implements GoogleMap.OnInfoWindowClic
         MapFragment fragment = (MapFragment)getActivity().getFragmentManager().findFragmentById(R.id.map);
         fragment.getMapAsync(this);
 
-        Button filter = (Button) getActivity().findViewById(R.id.filter);
-        filter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.main_container, new FiltersFragment());
-                transaction.addToBackStack(null);
-                transaction.commit();
-            }
-        });
-
+        // Button handler for the up arrow that opens the filter page
         ImageButton up_arrow = (ImageButton) getActivity().findViewById(R.id.up_arrow);
         up_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,6 +168,7 @@ public class GMapFragment extends Fragment implements GoogleMap.OnInfoWindowClic
             }
         });
 
+        // Button handler for the filter text that opens the filter page
         Button filterButton = (Button) getActivity().findViewById(R.id.filter);
         filterButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -184,6 +179,7 @@ public class GMapFragment extends Fragment implements GoogleMap.OnInfoWindowClic
             }
         });
 
+        // Button handler for the button that takes you to the next page (the list of spots)
         Button goToListButton = (Button) getActivity().findViewById(R.id.goToList);
         goToListButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -195,9 +191,11 @@ public class GMapFragment extends Fragment implements GoogleMap.OnInfoWindowClic
             }
         });
 
+        // Set the search location in the bottom left corner
         TextView locationName = (TextView)getActivity().findViewById(R.id.location_name);
         locationName.setText(((MainActivity)getActivity()).lastSearch);
 
+        // Hide the overlay if it has been seen
         if (((MainActivity)getActivity()).mapOverlaySeen) {
             RelativeLayout homeOverlay = (RelativeLayout) getActivity().findViewById(R.id.map_help_layout);
             homeOverlay.setVisibility(View.INVISIBLE);

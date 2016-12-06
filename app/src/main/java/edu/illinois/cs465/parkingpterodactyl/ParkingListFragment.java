@@ -35,21 +35,18 @@ public class ParkingListFragment extends Fragment {
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        //set title and names of selected parking locations
+        // Set the title in the action bar
         super.onActivityCreated(savedInstanceState);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Parking Selections");
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
+        // Set the list adapter for the list of parking locations
         ParkingListAdapter adapter = new ParkingListAdapter(((MainActivity) getActivity()).selectedParkingLocations, getActivity());
-
         ListView listView = (ListView)getActivity().findViewById(R.id.parking_list_items);
         listView.setAdapter(adapter);
 
-
-        ImageButton navigateButton = (ImageButton) getActivity().findViewById(R.id.navigate);
-        //Help Overlay Code
-
+        // Handler for the overlay done button
         Button navigationOverlayDoneButton = (Button) getActivity().findViewById(R.id.navigationOverlayDone);
         navigationOverlayDoneButton.setVisibility(View.VISIBLE);
         navigationOverlayDoneButton.setOnTouchListener(new View.OnTouchListener() {
@@ -65,26 +62,8 @@ public class ParkingListFragment extends Fragment {
 
         });
 
-
-        /*
-        final View topLevelLayout = getActivity().findViewById(R.id.overlayparkinglocations);
-        if (!((MainActivity)getActivity()).parkingSeen) {
-            topLevelLayout.setVisibility(View.VISIBLE);
-            ((MainActivity)getActivity()).parkingSeen = true;
-        } else {
-            topLevelLayout.setVisibility(View.INVISIBLE);
-        }
-        topLevelLayout.setOnTouchListener(new View.OnTouchListener(){
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                topLevelLayout.setVisibility(View.INVISIBLE);
-                return false;
-            }
-
-        });*/
-
-
+        // Handler for the navigate button
+        ImageButton navigateButton = (ImageButton) getActivity().findViewById(R.id.navigate);
         navigateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,7 +73,7 @@ public class ParkingListFragment extends Fragment {
                     mapIntent.setPackage("com.google.android.apps.maps");
                     startActivity(mapIntent);
 
-                    // Create occupied button
+                    // Create occupied button if there is at least one more spot to navigate to
                     if (((MainActivity) getActivity()).selectedParkingLocations.size() > 1) {
                         NotificationCompat.Builder mBuilder =
                                 new NotificationCompat.Builder(getActivity())
@@ -145,12 +124,10 @@ public class ParkingListFragment extends Fragment {
 
         });
 
+        // Hide the overlay if it has already been seen
         if (((MainActivity)getActivity()).parkingSeen) {
             RelativeLayout homeOverlay = (RelativeLayout) getActivity().findViewById(R.id.list_help_layout);
             homeOverlay.setVisibility(View.INVISIBLE);
         }
-
-
     }
-
 }

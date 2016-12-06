@@ -19,21 +19,17 @@ import java.util.LinkedList;
 
 public class FiltersFragment extends Fragment {
 
-    // TODO(Zach) - Add listeners for car size
-
     public FiltersFragment() {
         // Required empty constructor
     }
 
-    // TODO(Zach) - set the car size too
+    // Show the selected checkboxes as selected
     private void setFilterOptions() {
-
         LinkedList<ParkingLocations.parkingType> types = ((MainActivity)getActivity()).allowedParkingTypes;
         CheckBox freeBox = (CheckBox) getActivity().findViewById(R.id.free);
         CheckBox paidBox = (CheckBox) getActivity().findViewById(R.id.paid);
         CheckBox streetBox = (CheckBox) getActivity().findViewById(R.id.meter);
         CheckBox eventBox = (CheckBox) getActivity().findViewById(R.id.special_event);
-
 
         if (types.contains(ParkingLocations.parkingType.FREE)) {
             freeBox.setChecked(true);
@@ -58,10 +54,9 @@ public class FiltersFragment extends Fragment {
         } else {
             eventBox.setChecked(false);
         }
-
-        setCurrentCarSize();
     }
 
+    // Highlight the currently selected car
     private void setCurrentCarSize() {
         ParkingLocations.carSize carSize = ((MainActivity)getActivity()).currentCarSize;
 
@@ -96,6 +91,8 @@ public class FiltersFragment extends Fragment {
         }
     }
 
+    // Set the listeners for the checkboxes so that checking or unchecking one updates the
+    // underlying data store
     private void setCheckboxListeners() {
         CheckBox freeBox = (CheckBox) getActivity().findViewById(R.id.free);
         CheckBox paidBox = (CheckBox) getActivity().findViewById(R.id.paid);
@@ -156,16 +153,16 @@ public class FiltersFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_filters, container, false);
-
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        ParkingLocations.carSize carSize = ((MainActivity)getActivity()).currentCarSize;
-
         setFilterOptions();
+        setCurrentCarSize();
         setCheckboxListeners();
         setButtonBackground();
+
+        // Set the listener on the down arrow that returns the user to the map view
         ImageButton down_arrow = (ImageButton) getActivity().findViewById(R.id.down_arrow);
         TextView locationName = (TextView)getActivity().findViewById(R.id.location_name_1);
         locationName.setText(((MainActivity)getActivity()).lastSearch);
@@ -180,8 +177,9 @@ public class FiltersFragment extends Fragment {
 
     }
 
+    // Set listeners for the car size buttons so that pressing one updates the underling data
+    // store and changes the background highlighting appropriately.
     private void setButtonBackground() {
-
         //fetch all buttons for car sizes
         final Button hb = (Button)getActivity().findViewById(R.id.hb_bt);
         final Button sedan = (Button) getActivity().findViewById(R.id.sedan_bt);

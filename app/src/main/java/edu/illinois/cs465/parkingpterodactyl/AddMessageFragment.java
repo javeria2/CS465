@@ -21,26 +21,28 @@ public class AddMessageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         return inflater.inflate(R.layout.fragment_add_message, container, false);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        // Set the title in the action bar
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("New Post");
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+        // Add a button listener to the post button.
+        // Posts the message, hides the keyboard, and navigates back to the message board when
+        // clicked.
         Button button = (Button) getActivity().findViewById(R.id.post_button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 InputMethodManager inputManager = (InputMethodManager)
                         getActivity().getSystemService(getActivity().INPUT_METHOD_SERVICE);
 
-                String messageText = ((EditText)getActivity().findViewById(R.id.message_text_entry)).getText().toString();
+                String messageText = ((EditText) getActivity().findViewById(R.id.message_text_entry)).getText().toString();
                 ((MainActivity)getActivity()).messages.addFirst(new Message(messageText));
 
                 inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),

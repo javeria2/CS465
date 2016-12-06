@@ -16,9 +16,6 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class HomeFragment extends Fragment {
 
 
@@ -37,12 +34,14 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        // Set the title in the action bar
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Parking Pterodactyl");
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+        // Add button handler so that pressing the search button stores the search term,
+        // hides the keyboard, and navigates to the next screen (map)
         ImageButton searchButton = (ImageButton) getActivity().findViewById(R.id.main_search_button);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,8 +52,10 @@ public class HomeFragment extends Fragment {
                 inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
                         InputMethodManager.HIDE_NOT_ALWAYS);
 
+                // Save search term
                 ((MainActivity)getActivity()).lastSearch = ((EditText)getActivity().findViewById(R.id.search_text)).getText().toString();
 
+                // Navigate to map page
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.main_container,  new GMapFragment());
                 transaction.addToBackStack(null);
@@ -62,6 +63,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        // Add a button handler to the done button on the overlay
         Button homeOverlayDoneButton = (Button) getActivity().findViewById(R.id.homeOverlayDone);
         homeOverlayDoneButton.setVisibility(View.VISIBLE);
         homeOverlayDoneButton.setOnTouchListener(new View.OnTouchListener() {
@@ -78,6 +80,7 @@ public class HomeFragment extends Fragment {
 
         });
 
+        // Hide the overlay if it has already been seen
         if (((MainActivity)getActivity()).homeOverlaySeen) {
             RelativeLayout homeOverlay = (RelativeLayout) getActivity().findViewById(R.id.top_layout);
             homeOverlay.setVisibility(View.INVISIBLE);

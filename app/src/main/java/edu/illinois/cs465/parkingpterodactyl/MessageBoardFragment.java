@@ -18,11 +18,13 @@ public class MessageBoardFragment extends Fragment {
         // Required empty constructor
     }
 
+    // Helper function to convert display pixels to pixels
     private int dpToPx(int dp) {
         float density = getActivity().getApplicationContext().getResources().getDisplayMetrics().density;
         return (int)(density * dp);
     }
 
+    // Helper function to add a message to the message board
     private void addMessageToBoard(Message m) {
         // Create the linear layout to hold the message
         LinearLayout messagesContainer = (LinearLayout)getActivity().findViewById(R.id.content_message_board);
@@ -74,18 +76,18 @@ public class MessageBoardFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_message_board, container, false);
-
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        // Set the title in the action bar
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Message Board");
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+        // Add a button handler to the floating action button that lets you add a message
         FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +101,7 @@ public class MessageBoardFragment extends Fragment {
             }
         });
 
+        // Add all of the messages to the message board
         for (Message message : ((MainActivity)getActivity()).messages) {
             addMessageToBoard(message);
         }

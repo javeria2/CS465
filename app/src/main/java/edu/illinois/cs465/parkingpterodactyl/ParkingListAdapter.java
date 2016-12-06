@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.LinkedList;
 
 /**
- * Created by Zach on 12/1/2016.
+ * Adapter class for the list of selected parking locations
  */
 
 public class ParkingListAdapter extends BaseAdapter implements ListAdapter {
@@ -48,18 +48,16 @@ public class ParkingListAdapter extends BaseAdapter implements ListAdapter {
             view = inflater.inflate(R.layout.parking_list_item_layout, null);
         }
 
-        //Handle TextView and display string from your list
+        // Set the item text to the name of the parking location
         TextView listItemText = (TextView)view.findViewById(R.id.list_item_string);
         listItemText.setText(parkingLocations.get(position).getNameOfLoc());
 
-        //Handle buttons and add onClickListeners
+        // Add onclick listener for the delete button that deletes the current parking location
         Button deleteBtn = (Button)view.findViewById(R.id.delete_btn);
-
         deleteBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                //do something
-                parkingLocations.remove(position); //or some other task
+                parkingLocations.remove(position);
                 notifyDataSetChanged();
             }
         });
